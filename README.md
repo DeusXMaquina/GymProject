@@ -1,7 +1,7 @@
 # GymProject
 
 ## Guidelines and Practices
-___
+
 ### Font:
   - Monsterrat
 
@@ -31,7 +31,6 @@ ___
  ________________________________________________________
 
 ## Tasks
-___
 
 ### Armando:
  - Schedule
