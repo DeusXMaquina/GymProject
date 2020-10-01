@@ -1,8 +1,36 @@
-body {
-  text-align: center;
-  font-family: "Robo Condensed", sans-serif;
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    /**Reset para REMS -62.5% = 10px de 16px*/
 }
 
+*,
+*:before,
+*::after {
+    box-sizing: inherit;
+}
+
+<<<<<<< HEAD
+body {
+    text-align: center;
+    font-family: "Robo Condensed", sans-serif;
+}
+
+img {
+    max-width: 100%;
+}
+
+.site-header {
+    background-color: #04245b;
+}
+
+.site-header nav {
+    max-width: 1200px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+=======
 ul {
   list-style: none;
   margin: 0auto;
@@ -56,23 +84,33 @@ li.dropdown {
 
 .dropdown:hover .dropdownContent {
   display: block;
+>>>>>>> 927720b89624138d2fb98664e440ca316bb5aa55
 }
 
-footer {
-  color: #ed8a0b;
-  display: block;
-  padding: 10px;
+@media(min-width: 768px) {
+    .site-header nav {
+        flex-direction: row;
+        justify-content: space-between;
+    }
 }
-footer h3 {
-  color: #506275;
-  font-style: italic;
+
+.site-header nav a {
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    margin-bottom: 2rem;
 }
-footer li > a {
-  display: block;
-  background-color: #04245b;
-  color: #506275;
+
+@media(min-width: 768px) {
+    .site-header nav a {
+        margin-bottom: 0;
+    }
 }
-footer li > img {
-  display: block;
-  height: 50px;
+
+.site-header nav a:last-of-type {
+    margin-bottom: 0;
+}
+
+nav a:hover {
+    color: #ed8a0b;
 }
