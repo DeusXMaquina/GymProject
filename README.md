@@ -32,8 +32,11 @@
 
 ## Tasks
 
-### Armando:
+### Armando (co-working with Regina):
  - Schedule
+  - Document will contain the option to     schedule gym time slots 2 x 30 min daily, maximum 1h. And 1 time per week day non-accumulative.
+
+  Will span images of gym training and fitness classes given at the gym.
 
 ### Regina:
  - Payments
