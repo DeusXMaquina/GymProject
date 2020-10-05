@@ -126,3 +126,37 @@ img {
     margin: 0;
     color: #ffffff;
 }
+
+
+/**HERO**/
+
+.hero {
+    height: 45rem;
+    background-image: url(../pictures/meghan-holmes-buWcS7G1_28-unsplash.jpg);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero::after {
+    content: '';
+    background-color: rgba(0, 0, 0, .7);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.container-hero {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center;
+}
+
+.container-hero i {
+    font-size: 5rem;
+    color: white;
+}
