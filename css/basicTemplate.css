@@ -19,6 +19,34 @@ img {
     max-width: 100%;
 }
 
+.container {
+    width: 95%;
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.navigation a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 2.2rem;
+    display: block;
+}
+
+@media(min-width: 768px) {
+    .navigation a {
+        display: inline-block;
+        font-size: 1.8rem;
+        margin-right: 2rem;
+    }
+    .navigation a:last-of-type {
+        margin: 0;
+    }
+}
+
+.navigation a:hover {
+    color: #ed8a0b;
+}
+
 .site-header {
     background-color: #04245b;
 }
@@ -55,6 +83,46 @@ img {
     margin-bottom: 0;
 }
 
-nav a:hover {
-    color: #ed8a0b;
+
+/**FOOTER**/
+
+#footer-nav a {
+    font-size: 1rem;
+}
+
+.site-footer {
+    background-color: #04245b;
+    margin: 0;
+}
+
+.site-footer nav {
+    display: none;
+}
+
+@media(min-width: 768px) {
+    .site-footer nav {
+        display: block;
+    }
+}
+
+.seccion-footer {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.container-footer {
+    padding: 3rem 0;
+    text-align: center;
+}
+
+@media(min-width: 768px) {
+    .container-footer {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.copyright {
+    margin: 0;
+    color: #ffffff;
 }
