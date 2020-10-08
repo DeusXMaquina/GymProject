@@ -1,4 +1,12 @@
 
+body {
+    background-image: url(/pictures/luis-vidal-FodEsaNZs48-unsplash.jpg);
+    background-position: center center;
+    background-size: cover;
+    height: 100vh;
+    min-height: 60rem;
+}
+
 /* classes */
   
 .label-slots {
@@ -17,9 +25,11 @@
   width: 40%;
   border-radius: 5px;
   padding: 2px 16px;
-  border-top: 10px solid rgb(4,36,91);
+  border-top: 10px solid #ed8a0b;
   background-color: white;
-  margin: 20px
+  margin: 20px;
+  border-style: solid;
+  border-color: #ed8a0b;
 }
     
   .card:hover {

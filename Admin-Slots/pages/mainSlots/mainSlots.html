@@ -5,9 +5,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Slots Template</title>
-  <link rel="stylesheet" href="/css/normalize.css">
-  <link rel="stylesheet" href="/css/mainTemplate.css" />
-  <link rel='stylesheet' href='/css/mainSlots/mainSlots.css'>
+  <link rel="stylesheet" href="/Admin-Slots/css/normalize.css">
+  <link rel="stylesheet" href="/Admin-Slots/css/mainTemplate.css" />
+  <link rel='stylesheet' href='/Admin-Slots/css/mainSlots/mainSlots.css'>
 </head>
 
 <body>
@@ -16,11 +16,11 @@
       <a href="#">
         <img style="height: 80px; width: 80px;" src="/pictures/cedefiOf.png" alt="cedefiLogo" />
       </a>
-      <a href="mainTemplate.html">Home</a>
+      <a href="/Admin-Slots/pages/mainSlots/mainSlots.html">Home</a>
       <div class='dropdown'>
         <a class='dropbtn'>Courses</a>
         <div class='dropdown-content'>
-          <a href=''>Add Course</a>
+          <a href='/Admin-Slots/pages/Courses/addCourses.html'>Add Course</a>
           <a href=''>Edit/Remove Course</a>
           <a href=''>View Courses</a>
         </div>
@@ -31,44 +31,46 @@
   </header>
 
   <!--Title-->
-  <h1 style='text-align:center'>Main Page</h1>
-
-  <table style='width:100%; text-align:center'>
-    <tr>
-      <td>
-          <button class='card'>
-              <h1>Add Course</h1>
-          </button>
-      </td>
-      <td>
-          <button class='card'>
-            <h1>Edit/Remove Course</h1>
-        </button>
-      </td>
-      <td>
-          <button class='card'>
-            <h1>View Courses</h1>
-        </button> 
-      </td>
-    </tr>
-    <tr>
-        <td>
-            <button class='card'>
-                <h1>Add Time Slot</h1>
+  <div class='bg-image'>
+      <h1 style='text-align:center; color:white'>Main Page</h1> 
+    
+      <table style='width:100%; text-align:center'>
+        <tr>
+          <td>
+              <button class='card'>
+                  <h1>Add Course</h1>
+              </button>
+          </td>
+          <td>
+              <button class='card'>
+                <h1>Edit/Remove Course</h1>
             </button>
-        </td>
-        <td>
-            <button class='card'>
-              <h1>Edit/Remove Time Slot</h1>
-          </button>
-        </td>
-        <td>
-            <button class='card'>
-              <h1>View Time Slots</h1>
-          </button> 
-        </td>
-      </tr>
-  </table>
+          </td>
+          <td>
+              <button class='card'>
+                <h1>View Courses</h1>
+            </button> 
+          </td>
+        </tr>
+        <tr>
+            <td>
+                <button class='card'>
+                    <h1>Add Time Slot</h1>
+                </button>
+            </td>
+            <td>
+                <button class='card'>
+                  <h1>Edit/Remove Time Slot</h1>
+              </button>
+            </td>
+            <td>
+                <button class='card'>
+                  <h1>View Time Slots</h1>
+              </button> 
+            </td>
+          </tr>
+      </table>
+  </div>
 
   <footer class="site-footer section-footer footer">
     <div class="container container-footer">
