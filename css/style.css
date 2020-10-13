@@ -1,0 +1,436 @@
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    /**Reset para REMS -62.5% = 10px de 16px*/
+}
+
+*,
+*:before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: "Robo Condensed", sans-serif;
+    font-size: 1.6rem;
+    line-height: 2;
+}
+
+
+/*globals */
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    width: 95%;
+    max-width: 120rem;
+    /*1200 px*/
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 3.8rem;
+}
+
+h2 {
+    font-size: 3.4rem;
+}
+
+h3 {
+    font-size: 3rem;
+    color: #04245b;
+}
+
+h4 {
+    font-size: 2.6rem;
+    color: #04245b;
+}
+
+
+/** Utilitys**/
+
+.separation {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.fw-300 {
+    font-weight: 300;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.d-block {
+    display: block!important;
+}
+
+
+/** Button **/
+
+.button {
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1.8rem;
+    padding: 1rem 3rem;
+    margin-top: 3rem;
+    display: inline-block;
+    text-align: center;
+    border: none;
+    display: block;
+    flex: 0 0 100%;
+}
+
+@media (min-width: 768px) {
+    .button {
+        display: inline-block;
+        flex: 0 0 auto;
+    }
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.button-orange {
+    background-color: #E08709;
+}
+
+
+/* Header */
+
+.site-header {
+    background-color: #333333;
+    padding: 1rem 0 3rem 0;
+}
+
+.site-header.home {
+    background-image: url(../pictures/luis-vidal-FodEsaNZs48-unsplash.jpg);
+    background-position: center center;
+    background-size: cover;
+    height: 100vh;
+    min-height: 60rem;
+}
+
+.content-header {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+
+@media(min-width: 768px) {
+    .content-header {
+        text-align: left;
+    }
+}
+
+.content-header h2 {
+    color: #ffffff;
+    padding-bottom: 2rem;
+    max-width: 60rem;
+    line-height: 2;
+}
+
+.bar {
+    padding-top: 3rem;
+}
+
+@media(min-width: 768px) {
+    .bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+
+/* Navigation */
+
+.navigation a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 2.2rem;
+    /* 18 px*/
+    display: block;
+}
+
+@media(min-width: 768px) {
+    .navigation a {
+        display: inline-block;
+        font-size: 1.8rem;
+        margin-right: 2rem;
+    }
+    .navigation a:last-of-type {
+        margin: 0;
+    }
+}
+
+.navigation a:hover {
+    color: #ed8a0b;
+}
+
+
+/**Icons aboutUs**/
+
+@media(min-width: 768px) {
+    .icons-aboutUs {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.icon {
+    text-align: center;
+}
+
+@media(min-width: 768px) {
+    .icon {
+        flex-basis: calc(33.3% - 1rem);
+    }
+}
+
+.icon h3 {
+    text-transform: uppercase;
+}
+
+
+/** instructors **/
+
+@media(min-width: 768px) {
+    .container-instructors {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+}
+
+.instructor {
+    border: 1px solid #B5B5B5;
+    background-color: #f5f5f5;
+    margin-bottom: 2rem;
+}
+
+@media(min-width: 768px) {
+    .instructor {
+        flex: 0 0 calc(33.3% - 1rem);
+    }
+}
+
+.content-instructor {
+    padding: 2rem;
+}
+
+.content-instructor h3,
+.content-instructor p {
+    margin: 0;
+}
+
+
+/** contact home**/
+
+.image-contact {
+    background-image: url(../pictures/meghan-holmes-buWcS7G1_28-unsplash.jpg);
+    background-position: center center;
+    background-size: cover;
+    height: 40rem;
+    display: flex;
+    align-items: center;
+}
+
+.content-contact {
+    flex: 0 0 95%;
+    color: #ffffff;
+}
+
+.content-contact p {
+    font-size: 1.8rem;
+}
+
+
+/**separation classs**/
+
+@media(min-width: 768px) {
+    .separation-class {
+        display: flex;
+        justify-content: space-between;
+    }
+    .separation-class .classes {
+        flex-basis: 60%;
+    }
+    .separation-class .testimoniales {
+        flex-basis: calc(40% - 2rem);
+    }
+}
+
+.enter-classes {
+    margin-bottom: 2rem;
+}
+
+@media(min-width: 768px) {
+    .enter-classes {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.enter-classes :last-of-type {
+    margin-bottom: 0;
+}
+
+@media(min-width: 768px) {
+    .enter-classes .image {
+        flex-basis: 40%;
+    }
+    .enter-classes .text-enter {
+        flex-basis: calc(60% - 3rem);
+    }
+}
+
+.text-enter a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.text-enter h4 {
+    margin: 0;
+    line-height: 1.4;
+}
+
+
+/**line selector**/
+
+.text-enter h4::after {
+    content: '';
+    display: block;
+    width: 15rem;
+    height: .5rem;
+    background-color: #ed8a0b;
+    margin-top: 1rem;
+}
+
+.text-enter span {
+    color: #E08709;
+}
+
+
+/**Login**/
+
+form {
+    background-color: #04245b;
+    padding: 2rem;
+    border-radius: 1rem;
+    margin-top: 3rem;
+    text-align: -webkit-center;
+    text-align-last: center;
+}
+
+form legend {
+    text-align: center;
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 2rem;
+}
+
+@media(min-width: 768px) {
+    form {
+        max-width: 800px;
+        margin: 3rem auto;
+    }
+    .container-login {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .log {
+        flex: 0 0 calc(50% - 1rem);
+    }
+    .login {
+        margin-left: 10rem;
+    }
+}
+
+.log {
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.log label {
+    flex: 0 0 90px;
+    padding-top: .5rem;
+    color: white;
+}
+
+.log input {
+    flex: 1;
+    height: 4rem;
+}
+
+.log textarea {
+    height: 6rem;
+    flex: 1;
+}
+
+.w-100 {
+    flex: 0 0 100%;
+}
+
+.submit {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.login {
+    align-self: center;
+}
+
+
+/**Footer**/
+
+#footer-nav a {
+    font-size: 1rem;
+}
+
+.site-footer {
+    background-color: #04245b;
+    margin: 0;
+}
+
+.site-footer nav {
+    display: none;
+}
+
+@media(min-width: 768px) {
+    .site-footer nav {
+        display: block;
+    }
+}
+
+.separation-footer {
+    margin-top: 2rem;
+}
+
+.container-footer {
+    padding: 3rem 0;
+    text-align: center;
+    align-items: center;
+}
+
+@media(min-width: 768px) {
+    .container-footer {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.copyright {
+    margin: 0;
+    color: #ffffff;
+    margin-right: 1rem;
+    font-size: 1.2rem;
+}
