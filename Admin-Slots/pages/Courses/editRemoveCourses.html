@@ -7,7 +7,7 @@
   <title>Slots Template</title>
   <link rel="stylesheet" href="/Admin-Slots/css/normalize.css">
   <link rel="stylesheet" href="/Admin-Slots/css/mainTemplate.css" />
-  <link rel='stylesheet' href='/Admin-Slots/css/courses/courses.css'>
+  <link rel='stylesheet' href='/Admin-Slots/css/courses/editremovecourses.css'>
 </head>
 
 <body>
@@ -20,9 +20,9 @@
       <div class='dropdown'>
         <a class='dropbtn'>Courses</a>
         <div class='dropdown-content'>
-          <a href='/Admin-Slots/pages/Courses/addCourses.html'>Add Course</a>
-          <a href='/Admin-Slots/pages/Courses/editRemoveCourses.html'>Edit/Remove Course</a>
-          <a href='/Admin-Slots/pages/Courses/viewCourses.html'>View Courses</a>
+            <a href='/Admin-Slots/pages/Courses/addCourses.html'>Add Course</a>
+            <a href='/Admin-Slots/pages/Courses/editRemoveCourses.html'>Edit/Remove Course</a>
+            <a href='/Admin-Slots/pages/Courses/viewCourses.html'>View Courses</a>
         </div>
       </div>
       <a href="">Time Slots</a>
@@ -31,37 +31,54 @@
   </header>
 
   <!--Title-->
-  <h1 style='text-align:center'>Courses</h1>
+  <h1 style='text-align:center'>Show Courses</h1>
 
-  <!--Card class-->
-  <div class='card'>
-    <form class='slots'>
-      <span>
-        <br>
-        <label class='label-slots' for=''>Course Name</label> <br>
-        <input class='input-slots' type='' id='' name='' value=''> <br><br>
-      </span>
-      <span>
-        <label class='label-slots'>Brief Description and routine</label>
-        <div>
-          <textarea class='input-slots' cols='40' rows='10'> </textarea><br><br>
-        </div>
-      </span>
-        <!--Dropdown class-->
-        <div class='instructor-dropdown'>
-          <select>
-            <option value="0">Select instructor</option>
-            <option value="1">Ricardo Aguilera</option>
-            <option value="2">Regina Madero</option>
-            <option value="3">Armando del Rio</option>
-            <option value="4">Pablo Altamirano</option>
-          </select>
-        </div>
-        <br><br>
-        <input style='padding:5px; margin:10px' type='submit' value='Add'>
-      </form>
-  </div>
-
+  <!--Table class-->
+  <table>
+    <tr>
+      <th>Course</th>
+      <th>Instructor</th>
+      <th>Availability</th>
+      <th>Time Slots</th>
+    </tr>
+    <tr>
+      <td>Zumba</td>
+      <td>Regina Madero</td>
+      <td>2</td>
+      <td>Tuesday and Wednesday</td>
+    </tr>
+    <tr>
+      <td>Rumba</td>
+      <td>Armando del Rio</td>
+      <td>3</td>
+      <td>Tuesday and Wednesday</td>
+    </tr>
+    <tr>
+      <td>Goomba</td>
+      <td>Ricardo Aguilera</td>
+      <td>4</td>
+      <td>Tuesday and Wednesday</td>
+    </tr>
+    <tr>
+      <td>Boxeo</td>
+      <td>Pablo Altamirano</td>
+      <td>5</td>
+      <td>Tuesday and Wednesday</td>
+    </tr>
+    <tr>
+      <td>Crossfit</td>
+      <td>Izuku Midoriya</td>
+      <td>10</td>
+      <td>Tuesday and Wednesday</td>
+    </tr>
+    <tr>
+      <td>Ninjutsu</td>
+      <td>Ibuki</td>
+      <td>0</td>
+      <td>Tuesday and Wednesday</td>
+    </tr>
+  </table>
+  
 
   <footer class="site-footer section-footer footer">
     <div class="container container-footer">
