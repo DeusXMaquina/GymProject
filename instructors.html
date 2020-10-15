@@ -30,7 +30,6 @@
             <legend>Instructor</legend>
             <div class="container-form">
                 <div class="log w-100">
-                    <label>Search</label>
                     <input type="search" name="search" placeholder="Search">
                     <div class="submit">
                         <input type="submit" value="Search">
@@ -50,11 +49,13 @@
                 </div>
                 <div class="log ">
                     <label>Gender</label>
-                    <i class="fa fa-male" aria-hidden="true" style="color:white; font-size:36px  "></i>
-                    <input type="checkbox" name="gener" placeholder="Male">
-                    <i class="fa fa-female" aria-hidden="true" style="color:white; font-size:36px "></i>
+                    <select name="Gender" id="">
+                        <option selected value="0">Select an Option</option>
+                        <option value="1">Male</option>
+                        <option value="1">Female</option>
+                        <option value="1">Other</option>
+                    </select>
 
-                    <input type="checkbox" name="gener" placeholder="Female">
                 </div>
                 <div class="log ">
                     <label>E-mail</label>
@@ -69,7 +70,7 @@
                     <label>Skills</label>
                     <input type="text" name="skill" placeholder="Skills" required>
                 </div>
-                <div class="log w-100">
+                <div class="log ">
                     <label>Personal Trainer</label>
                     <input type="checkbox" name="trainer" placeholder="PersonalTrainer">
                 </div>
