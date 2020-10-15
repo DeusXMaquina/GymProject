@@ -1,6 +1,8 @@
 html {
     box-sizing: border-box;
     font-size: 62.5%;
+    min-height: 100%;
+    position: relative;
     /**Reset para REMS -62.5% = 10px de 16px*/
 }
 
@@ -13,6 +15,7 @@ html {
 body {
     text-align: center;
     font-family: "Robo Condensed", sans-serif;
+    background-image: url(/pictures/meghan-holmes-buWcS7G1_28-unsplash.jpg);
 }
 
 img {
@@ -111,54 +114,9 @@ img {
 }
 
 
-/**FOOTER**/
-
-#footer-nav a {
-    font-size: 1rem;
-}
-
-.site-footer {
-    background-color: #04245b;
-    margin: 0;
-}
-
-.site-footer nav {
-    display: none;
-}
-
-@media(min-width: 768px) {
-    .site-footer nav {
-        display: block;
-    }
-}
-
-.seccion-footer {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-}
-
-.container-footer {
-    padding: 3rem 0;
-    text-align: center;
-}
-
-@media(min-width: 768px) {
-    .container-footer {
-        display: flex;
-        justify-content: space-between;
-    }
-}
-
-.copyright {
-    margin: 0;
-    color: #ffffff;
-}
-
-
 /**Instructor-Form*/
 
 form {
-    background-color: #04245b;
     padding: 2rem;
     border-radius: 1rem;
     margin-top: 3rem;
@@ -171,6 +129,8 @@ form legend {
     font-size: 2rem;
     color: white;
     margin-bottom: 2rem;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 @media(min-width: 768px) {
@@ -206,16 +166,62 @@ form legend {
     height: 4rem;
 }
 
-.log textarea {
-    height: 6rem;
-    flex: 1;
-}
-
 .w-100 {
     flex: 0 0 100%;
 }
 
 .submit {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+}
+
+
+/**FOOTER**/
+
+#footer-nav a {
+    font-size: 1rem;
+}
+
+.site-footer {
+    background-color: #04245b;
+    margin: 0;
+    margin-top: 3.5rem;
+}
+
+.site-footer nav {
+    display: none;
+}
+
+@media(min-width: 768px) {
+    footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+    .site-footer nav {
+        display: block;
+        margin-top: none;
+    }
+}
+
+.seccion-footer {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.container-footer {
+    padding: 3rem 0;
+    text-align: center;
+}
+
+@media(min-width: 768px) {
+    .container-footer {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.copyright {
+    margin: 0;
+    color: #ffffff;
 }
