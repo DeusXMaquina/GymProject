@@ -1,0 +1,23 @@
+ENTREGAS
+
+CRUD-de todas las partes. 
+    **Instructor**
+    *Admin-Slots
+    *Schedule
+    *Payments
+
+-Creación de Base de Datos  --> REGINA
+    *Tablas, Pk, FK, etc.
+    *Insertar mínimo 5 valores por tabla para pruebas. 
+    *Poder correr query en cualquier sevidor.
+        -HOY PASAN DATOS DE TABLAS.
+    *MASTER SCRIPT
+
+-Controladores 
+    -Conexion a BD
+    -Contraladores arquitectura para el CRUD (POST, GET, UPDATE, DELETE)
+    -Controlador de BASE DE DATOS-->PABLO
+
+UNIR PHP a HTML5 
+
+
