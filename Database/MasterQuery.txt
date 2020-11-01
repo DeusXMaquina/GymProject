@@ -1,0 +1,49 @@
+/* ---MASTER QUERY --- */ 
+
+    /*Create Database 'gym'*/
+
+CREATE DATABASE gym;
+
+    /*Go to dabase gym*/
+
+USE gym;
+
+    /*Create tables*/
+
+CREATE TABLE users(
+    id int PRIMARY KEY AUTO_INCREMENT, 
+    usuario varchar(255) NOT Null,
+    pass varchar(255) NOT null, 
+    create_at date, 
+    update_at date
+);
+
+CREATE TABLE instructor(
+id int PRIMARY KEY AUTO_INCREMENT, 
+    nombre varchar(255) NOT Null,
+    create_at date, 
+    update_at date
+);
+
+CREATE TABLE courses (
+    id int PRIMARY KEY AUTO_INCREMENT,
+    name varchar(255) not null, 
+    idInstructor int NOT null,
+    FOREIGN KEY(idInstructor) REFERENCES instructor(id)
+    );
+
+CREATE TABLE payments (
+    id int PRIMARY KEY AUTO_INCREMENT not null,
+    idUser int not null,
+    dateIssued date not null, 
+    total float not null,
+    FOREIGN KEY(idUser) REFERENCES users(id)
+);
+
+CREATE TABLE paymentsDetail (
+    id int PRIMARY KEY AUTO_INCREMENT not null,
+    idPayments int not null,
+    description varchar(255) not null,
+    uniquePrice float not null,
+    FOREIGN KEY(idPayments) REFERENCES payments(id)
+);
