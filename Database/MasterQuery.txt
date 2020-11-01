@@ -1,24 +1,24 @@
 /* ---MASTER QUERY --- */ 
 
-    /*Create Database 'gym'*/
+    /* Create Database 'gym' */
 
 CREATE DATABASE gym;
 
-    /*Go to dabase gym*/
+    /* Go to dabase gym */
 
 USE gym;
 
-    /*Create tables*/
+    /* Create tables */
 
 CREATE TABLE users(
-    id int PRIMARY KEY AUTO_INCREMENT, 
-    usuario varchar(255) NOT Null,
-    pass varchar(255) NOT null, 
+    id INT PRIMARY KEY AUTO_INCREMENT, 
+    usuario VARCHAR(255) NOT NULL,
+    pass VARCHAR(255) NOT null,
     create_at date, 
     update_at date
 );
 
-CREATE TABLE instructor(
+CREATE TABLE instructors(
 id int PRIMARY KEY AUTO_INCREMENT, 
     nombre varchar(255) NOT Null,
     create_at date, 
@@ -26,11 +26,13 @@ id int PRIMARY KEY AUTO_INCREMENT,
 );
 
 CREATE TABLE courses (
-    id int PRIMARY KEY AUTO_INCREMENT,
-    name varchar(255) not null, 
-    idInstructor int NOT null,
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    idInstructor INT NOT NULL,
+    description TEXT NOT NULL,
     FOREIGN KEY(idInstructor) REFERENCES instructor(id)
     );
+
 
 CREATE TABLE payments (
     id int PRIMARY KEY AUTO_INCREMENT not null,

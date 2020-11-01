@@ -6,7 +6,7 @@
 
     #read method
     #$result ='';
-    #$result = $objectReadTable -> read("users", array('id', 'usuario', 'pass'));
+    #$result = $objectReadTable -> read("users");
 
     #var_dump($result[0]['usuario']);
     
