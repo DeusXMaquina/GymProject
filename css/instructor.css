@@ -1,6 +1,8 @@
 html {
     box-sizing: border-box;
     font-size: 62.5%;
+    min-height: 100%;
+    position: relative;
     /**Reset para REMS -62.5% = 10px de 16px*/
 }
 
@@ -11,20 +13,41 @@ html {
 }
 
 body {
+    text-align: center;
     font-family: "Robo Condensed", sans-serif;
-}
-
-header {
-    text-align: center;
-}
-
-footer {
-    text-align: center;
+    background-image: url(/pictures/meghan-holmes-buWcS7G1_28-unsplash.jpg);
 }
 
 img {
     max-width: 100%;
 }
+
+
+/**Button**/
+
+.button {
+    padding: 1rem 5rem;
+    display: inline-block;
+    margin-top: 1rem;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 2.2rem;
+    border-radius: .5rem;
+    border: none;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.button-orange {
+    background-color: #E08709;
+}
+
+
+/**end button**/
 
 .container {
     width: 95%;
@@ -91,15 +114,69 @@ img {
 }
 
 
-/**FOOTER**/
+/**Instructor-Form*/
 
-.footer {
-position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
+form {
+    padding: 2rem;
+    border-radius: 1rem;
+    margin-top: 3rem;
+    text-align: -webkit-center;
+    text-align-last: center;
 }
+
+form legend {
+    text-align: center;
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+@media(min-width: 768px) {
+    form {
+        max-width: 800px;
+        margin: 3rem auto;
+    }
+    .container-form {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .log {
+        flex: 0 0 calc(50% - 1rem);
+    }
+}
+
+.log {
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.log label {
+    flex: 0 0 90px;
+    padding-top: .5rem;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.log input {
+    flex: 1;
+    height: 4rem;
+}
+
+.w-100 {
+    flex: 0 0 100%;
+}
+
+.submit {
+    display: flex;
+    justify-content: center;
+}
+
+
+/**FOOTER**/
 
 #footer-nav a {
     font-size: 1rem;
@@ -108,6 +185,7 @@ position: fixed;
 .site-footer {
     background-color: #04245b;
     margin: 0;
+    margin-top: 3.5rem;
 }
 
 .site-footer nav {
@@ -115,8 +193,14 @@ position: fixed;
 }
 
 @media(min-width: 768px) {
+    footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
     .site-footer nav {
         display: block;
+        margin-top: none;
     }
 }
 

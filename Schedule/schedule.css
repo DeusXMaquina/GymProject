@@ -98,6 +98,10 @@ img {
 /* Hide the images by default */
 .mySlides {
   display: none;
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 5px auto 5px auto;
 }
 
 /* Next & previous buttons */
@@ -106,12 +110,12 @@ img {
   position: absolute;
   top: 50%;
   width: auto;
-  margin-top: -22px;
+  margin: -22px;
   padding: 16px;
-  color: white;
+  color: #04245b;
   font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
+  font-size: 15px;
+  transition-delay: 4s;
   border-radius: 0 3px 3px 0;
   user-select: none;
 }
@@ -124,27 +128,7 @@ img {
 
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
+  background-color: grey;
 }
 
 /* The dots/bullets/indicators */
@@ -153,10 +137,10 @@ img {
   height: 15px;
   width: 15px;
   margin: 0 2px;
-  background-color: #bbb;
+  background-color: #04245b;
   border-radius: 50%;
   display: inline-block;
-  transition: background-color 0.6s ease;
+  transition-delay: 7s;
 }
 
 .active, .dot:hover {
@@ -166,18 +150,18 @@ img {
 /* Fading animation */
 .fade {
   -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
+  -webkit-animation-duration: 7s;
   animation-name: fade;
-  animation-duration: 1.5s;
+  animation-duration: 7s;
 }
 
 @-webkit-keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+  from {opacity: .1}
+  to {opacity: 0}
 }
 
 @keyframes fade {
-  from {opacity: .4}
+  from {opacity: .1}
   to {opacity: 1}
 }
 
