@@ -6,18 +6,24 @@
 
     #read method
     #$result ='';
-    #$result = $objectReadTable -> read("users");
+    #$result = $objectReadTable -> read("courses");
 
-    #var_dump($result[0]['usuario']);
+    #var_dump($result);
     
     #create method
-    #$result = $objectReadTable -> create('users', array('usuario', 'pass'), array('usuarioPHP', 'desdePHP'));
+    #$result = $objectReadTable -> create('payments', array('usuario', 'pass'), array('usuarioPHP', 'desdePHP'));
+
+    #echo '<h3>'.$result.'<h3>';
     
     #update method
-    #$result = $objectReadTable -> update('users',array('usuario','pass'),array('Arce','pastrami'),'usuario', 'Altamirano')
+    #$result = $objectReadTable -> update('users',array('usuario'),array('12389gfbjasd'),'id', '1');
+
+    #echo $result
 
     #delete method
-    #$result = $objectReadTable -> delete('users', 'usuario', 'usuarioPHP')
+    $result = $objectReadTable -> delete('users', 'id', '1');
+
+    echo $result;
 
 
 ?>

@@ -33,7 +33,6 @@ CREATE TABLE courses (
     FOREIGN KEY(idInstructor) REFERENCES instructor(id)
     );
 
-
 CREATE TABLE payments (
     id int PRIMARY KEY AUTO_INCREMENT not null,
     idUser int not null,

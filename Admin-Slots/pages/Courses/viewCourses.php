@@ -16,13 +16,13 @@
       <a href="#">
         <img style="height: 80px; width: 80px;" src="/GymProject/pictures/cedefiOf.png" alt="cedefiLogo" />
       </a>
-      <a href="/Admin-Slots/pages/mainSlots/mainSlots.html">Home</a>
+      <a href="/GymProject/Admin-Slots/pages/mainSlots/mainSlots.html">Home</a>
       <div class='dropdown'>
         <a class='dropbtn'>Courses</a>
         <div class='dropdown-content'>
-            <a href='/Admin-Slots/pages/Courses/addCourses.html'>Add Course</a>
-            <a href='/Admin-Slots/pages/Courses/editRemoveCourses.html'>Edit/Remove Course</a>
-            <a href='/Admin-Slots/pages/Courses/viewCourses.html'>View Courses</a>
+            <a href='/GymProject/Admin-Slots/pages/Courses/addCourses.php'>Add Course</a>
+            <a href='/GymProject/Admin-Slots/pages/Courses/editRemoveCourses.php'>Edit/Remove Course</a>
+            <a href='/GymProject/Admin-Slots/pages/Courses/viewCourses.php'>View Courses</a>
         </div>
       </div>
       <a href="">Time Slots</a>
@@ -36,6 +36,7 @@
   <!--Table class-->
   <table>
     <tr>
+      <th>ID</th>
       <th>Course</th>
       <th>Instructor</th>
       <th>Description</th>
@@ -47,47 +48,32 @@
        $instructorResults = $objectReadTable -> read('instructor');
        $coursesResults = $objectReadTable -> read('courses');
 
-       echo $coursesResults[0][0];
-       function insertTableData ($array) {
+       function findInstructor ($instructorArray, $id) {
+         for ($index = 0; $index < count($instructorArray); $index++) {
+           if ($instructorArray[$index]['id'] === $id) {
+             return $instructorArray[$index]['nombre'];
+           }
+         }
+         return 'No instructor assigned';
+       }
+
+       function insertTableData ($array, $instructor) {
+         $indexFlag = 0;
          foreach ($array as $val) {
-           echo '<td>'.$val.'</td>';
+            if($indexFlag === 2) {
+              echo '<td>'.findInstructor($instructor, $val).'</td>';
+              $indexFlag++;
+            } else {
+              echo '<td>'.$val.'</td>';
+              $indexFlag++;
+            }
          }
        }
 
        for ($indexRow = 0; $indexRow < count($coursesResults); $indexRow ++) {
-         echo '<tr>'.insertTableData($coursesResults[$indexRow]).'</tr>';
+         echo '<tr>'.insertTableData($coursesResults[$indexRow], $instructorResults).'</tr>';
        }
     ?>
-    <tr>
-      <td>Zumba</td>
-      <td>Regina Madero</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td>Rumba</td>
-      <td>Armando del Rio</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td>Goomba</td>
-      <td>Ricardo Aguilera</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <td>Boxeo</td>
-      <td>Pablo Altamirano</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <td>Crossfit</td>
-      <td>Izuku Midoriya</td>
-      <td>10</td>
-    </tr>
-    <tr>
-      <td>Ninjutsu</td>
-      <td>Ibuki</td>
-      <td>0</td>
-    </tr>
   </table>
   
 

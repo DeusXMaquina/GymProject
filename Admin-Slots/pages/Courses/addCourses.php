@@ -16,13 +16,13 @@
       <a href="#">
         <img style="height: 80px; width: 80px;" src="/GymProject/pictures/cedefiOf.png" alt="cedefiLogo" />
       </a>
-      <a href="/Admin-Slots/pages/mainSlots/mainSlots.html">Home</a>
+      <a href="/GymProject/Admin-Slots/pages/mainSlots/mainSlots.html">Home</a>
       <div class='dropdown'>
         <a class='dropbtn'>Courses</a>
         <div class='dropdown-content'>
-          <a href='/GymProject/Admin-Slots/pages/Courses/addCourses.html'>Add Course</a>
-          <a href='/GymProject/Admin-Slots/pages/Courses/editRemoveCourses.html'>Edit/Remove Course</a>
-          <a href='/GymProject/Admin-Slots/pages/Courses/viewCourses.html'>View Courses</a>
+          <a href='/GymProject/Admin-Slots/pages/Courses/addCourses.php'>Add Course</a>
+          <a href='/GymProject/Admin-Slots/pages/Courses/editRemoveCourses.php'>Edit/Remove Course</a>
+          <a href='/GymProject/Admin-Slots/pages/Courses/viewCourses.php'>View Courses</a>
         </div>
       </div>
       <a href="">Time Slots</a>
@@ -39,7 +39,7 @@
       <span>
         <br>
         <label class='label-slots'>Course Name</label> <br>
-        <input class='input-slots' name='course'> <br><br>
+        <input class='input-slots' name='courses'> <br><br>
       </span>
       <span>
         <label class='label-slots'>Brief Description and routine</label>
@@ -60,7 +60,6 @@
 
               (function($array){
                 for ($index = 0; $index < count($array); $index++){
-                  $value = $index+1;
                   echo '<option value="'.$array[$index]['id'].'">'.$array[$index]['nombre'].'</option>';
                 }
               })($result)
