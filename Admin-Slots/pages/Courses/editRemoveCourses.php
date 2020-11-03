@@ -7,7 +7,7 @@
   <title>Slots Template</title>
   <link rel="stylesheet" href="/GymProject/Admin-Slots/css/normalize.css">
   <link rel="stylesheet" href="/GymProject/Admin-Slots/css/mainTemplate.css" />
-  <link rel='stylesheet' href='/GymProject/Admin-Slots/css/courses/viewcourses.css'>
+  <link rel='stylesheet' href='/GymProject/Admin-Slots/css/courses/editremovecourses.css'>
 </head>
 
 <body>
@@ -31,15 +31,17 @@
   </header>
 
   <!--Title-->
-  <h1 style='text-align:center'>Show Courses</h1>
+  <h1 style='text-align:center'>Edit or Remove Courses</h1>
 
   <!--Table class-->
-  <table>
+  <form method='post'>
+  <table id='coursesTable'>
     <tr>
       <th>Id</th>
       <th>Course</th>
       <th>Instructor</th>
       <th>Description</th>
+      <th>Options</th>
     </tr>
     <?php
       include_once '/xampp/htdocs/GymProject/Database/Database.php';
@@ -57,24 +59,26 @@
         return 'No Instructor Assigned';
       }
 
-      function insertTableData ($array, $instructor) {
+      function insertTableData ($array, $instructor, $id) {
         $instructorFlag = 0;
+        echo '<tr>';
         foreach ($array as $val) {
           if($instructorFlag === 2){
-            echo '<td>'.findInstructorName($instructor, $val).'</td>';
+            echo '<td id="instructor">'.findInstructorName($instructor, $val).'</td>';
             $instructorFlag++;
           } else {
             echo '<td>'.$val.'</td>';
             $instructorFlag++;
           }
          }
+         echo '<td><button id='.$id.' class="removeUpdateButton" type="submit" formaction="controllerUpdateCourse.php">Update</button><button id='.$id.' class="removeUpdateButton" type="submit" formaction="controllerDeleteCourse.php">Remove</button></td></tr>';
        }
-
        for ($indexRow = 0; $indexRow < count($coursesResults); $indexRow ++) {
-         echo '<tr>'.insertTableData($coursesResults[$indexRow], $instructorResults).'</tr>';
+         insertTableData($coursesResults[$indexRow], $instructorResults, $coursesResults[$indexRow]['id']);
        }
     ?>
   </table>
+</form>
   
 
   <footer class="site-footer section-footer footer">
@@ -91,4 +95,5 @@
     </div>
   </footer>
 </body>
+<script src='editRemoveScript.js'></script>
 </html>

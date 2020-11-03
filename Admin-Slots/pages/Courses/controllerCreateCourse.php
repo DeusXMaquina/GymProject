@@ -20,9 +20,9 @@
       <div class='dropdown'>
         <a class='dropbtn'>Courses</a>
         <div class='dropdown-content'>
-          <a href='/GymProject/Admin-Slots/pages/Courses/addCourses.html'>Add Course</a>
-          <a href='/GymProject/Admin-Slots/pages/Courses/editRemoveCourses.html'>Edit/Remove Course</a>
-          <a href='/GymProject/Admin-Slots/pages/Courses/viewCourses.html'>View Courses</a>
+          <a href='/GymProject/Admin-Slots/pages/Courses/addCourses.php'>Add Course</a>
+          <a href='/GymProject/Admin-Slots/pages/Courses/editRemoveCourses.php'>Edit/Remove Course</a>
+          <a href='/GymProject/Admin-Slots/pages/Courses/viewCourses.php'>View Courses</a>
         </div>
       </div>
       <a href="">Time Slots</a>
@@ -40,9 +40,9 @@
 
       $objectCreateCourse = new Database('localhost', 'root', 'gym');
 
-      #$result = $objectCreateCourse -> create('courses', array('name', 'idInstructor','description'), array($_POST['course'], $idInstructor = $_POST['idInstructor'], $_POST['description']));
+      $result = $objectCreateCourse -> create('courses', array('name', 'idInstructor','description'), array($_POST['course'], $idInstructor = $_POST['idInstructor'], $_POST['description']));
 
-      echo '<h3>Creado<h3>';
+      echo '<h3>$result<h3>';
 
   ?>
 
