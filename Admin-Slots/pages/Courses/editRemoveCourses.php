@@ -31,53 +31,54 @@
   </header>
 
   <!--Title-->
-  <h1 style='text-align:center'>Show Courses</h1>
+  <h1 style='text-align:center'>Edit or Remove Courses</h1>
 
   <!--Table class-->
-  <table>
+  <form method='post'>
+  <table id='coursesTable'>
     <tr>
+      <th>Id</th>
       <th>Course</th>
       <th>Instructor</th>
-      <th>Availability</th>
-      <th>Time Slots</th>
+      <th>Description</th>
+      <th>Options</th>
     </tr>
-    <tr>
-      <td>Zumba</td>
-      <td>Regina Madero</td>
-      <td>2</td>
-      <td>Tuesday and Wednesday</td>
-    </tr>
-    <tr>
-      <td>Rumba</td>
-      <td>Armando del Rio</td>
-      <td>3</td>
-      <td>Tuesday and Wednesday</td>
-    </tr>
-    <tr>
-      <td>Goomba</td>
-      <td>Ricardo Aguilera</td>
-      <td>4</td>
-      <td>Tuesday and Wednesday</td>
-    </tr>
-    <tr>
-      <td>Boxeo</td>
-      <td>Pablo Altamirano</td>
-      <td>5</td>
-      <td>Tuesday and Wednesday</td>
-    </tr>
-    <tr>
-      <td>Crossfit</td>
-      <td>Izuku Midoriya</td>
-      <td>10</td>
-      <td>Tuesday and Wednesday</td>
-    </tr>
-    <tr>
-      <td>Ninjutsu</td>
-      <td>Ibuki</td>
-      <td>0</td>
-      <td>Tuesday and Wednesday</td>
-    </tr>
+    <?php
+      include_once '/xampp/htdocs/GymProject/Database/Database.php';
+
+      $objectReadTable = new Database('localhost', 'root', 'gym');
+      $instructorResults = $objectReadTable -> read('instructor');
+      $coursesResults = $objectReadTable -> read('courses');
+
+      function findInstructorName ($instructorArray, $id) {
+        for ($index = 0; $index < count($instructorArray); $index++) {
+          if ($instructorArray[$index]['id'] === $id){
+            return $instructorArray[$index]['nombre'];
+          }
+        }
+        return 'No Instructor Assigned';
+      }
+
+      function insertTableData ($array, $instructor, $id) {
+        $instructorFlag = 0;
+        echo '<tr>';
+        foreach ($array as $val) {
+          if($instructorFlag === 2){
+            echo '<td id="instructor">'.findInstructorName($instructor, $val).'</td>';
+            $instructorFlag++;
+          } else {
+            echo '<td>'.$val.'</td>';
+            $instructorFlag++;
+          }
+         }
+         echo '<td><button id='.$id.' class="removeUpdateButton" type="submit" formaction="controllerDeleteCourse.php">Remove</button><button id='.$id.' class="removeUpdateButton" type="submit" formaction="controllerUpdateCourse.php">Update</button></td></tr>';
+       }
+       for ($indexRow = 0; $indexRow < count($coursesResults); $indexRow ++) {
+         insertTableData($coursesResults[$indexRow], $instructorResults, $coursesResults[$indexRow]['id']);
+       }
+    ?>
   </table>
+</form>
   
 
   <footer class="site-footer section-footer footer">
@@ -94,4 +95,5 @@
     </div>
   </footer>
 </body>
+<script src='editRemoveScript.js'></script>
 </html>
