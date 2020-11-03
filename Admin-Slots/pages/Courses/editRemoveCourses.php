@@ -71,7 +71,7 @@
             $instructorFlag++;
           }
          }
-         echo '<td><button id='.$id.' class="removeUpdateButton" type="submit" formaction="controllerDeleteCourse.php">Remove</button><button id='.$id.' class="removeUpdateButton" type="submit" formaction="controllerUpdateCourse.php">Update</button></td></tr>';
+         echo '<td><button id='.$id.' class="removeUpdateButton" type="submit" formaction="controllerUpdateCourse.php">Update</button><button id='.$id.' class="removeUpdateButton" type="submit" formaction="controllerDeleteCourse.php">Remove</button></td></tr>';
        }
        for ($indexRow = 0; $indexRow < count($coursesResults); $indexRow ++) {
          insertTableData($coursesResults[$indexRow], $instructorResults, $coursesResults[$indexRow]['id']);

@@ -11,7 +11,7 @@ function removeCookies() {
 }
 
 document.querySelectorAll('#coursesTable td').forEach(event => event.addEventListener('click', function() {
-  if (event.innerText !== 'RemoveUpdate') {
+  if (event.innerText !== 'UpdateRemove') {
     var value = window.prompt('Enter new value: ', event.innerText)
     if (value !== '') {
       if (event.id === 'instructor') {
