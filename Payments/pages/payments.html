@@ -29,52 +29,37 @@
     <div class="container-hero">
       <!--Title-->
       <h1 style='text-align:center'>Payments</h1>
-
-      <!-- Membership-->
-      <div>
-        <form action="/GymProject/Payments/Controllers/controllerCreatePaymentData.php" method="POST" class="payment">
+        <form action="/GymProject/Payments/Controllers/controllerCreatePayments.php" method="POST" class="payment">
+          <!-- Membership-->
           <h3>Select your membership:</h3>
-          <table>
-            <tr>
-              <td>
-                <input type="checkbox" name="GoldMembership" id="GoldCheckbox" />
-              </td>
-              <td>Gold Membership:</td>
-              <td>
-                all classes + Snack Bar & Shower access
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <input type="checkbox" name="SilverMembership" id="SilverCheckbox" />
-              </td>
-              <td>Silver Membership:</td>
-              <td>all classes</td>
-            </tr>
-          </table>
+          <input type="radio" name="membership" id="gold" value="gold">
+          <label for="gold">Gold Membership: all clases + Snack Bar & Shower access ONLY $99 USD</label><br>
+          <input type="radio" name="membership" id="silver" value="silver">
+          <label for="silver">Silver Membership: All classes FOR $65 USD</label>
           <br />
+
           <!-- Full name -->
           <h3>Insert your credit or debit card full information: </h3>
-          <input type="text" name="fullName" id="fullName" placeholder="Full name as shown on credit/debit card" style="width: 330px;" />
+          <input type="text" name="fullName" id="fullName" placeholder="Full name as shown on credit/debit card" style="width: 330px;"  required/>
 
           <!-- Card type-->
           <div class="card">
-            <input type="checkbox" name="visaCard" id="" />
+            <input type="radio" name="card" id="visa" value="visa" />
             <i class="fa fa-cc-visa" style="font-size: 36px; color: darkblue"></i>
-            <input type="checkbox" name="masterCard" id="" />
+            <input type="radio" name="card" id="mastercard" value="mastercard"/>
             <i class="fa fa-cc-mastercard" style="font-size: 36px; color: orangered"></i>
-            <input type="checkbox" name="amexCard" id="" />
+            <input type="radio" name="card" id="amexcard" value="amexcard" />
             <i class="fa fa-cc-amex" style="font-size: 36px; color: lightskyblue"></i>
           </div>
 
           <br />
-          <input type="password" name="cardNumber" id="cardNumber" placeholder="Card Number" style="width: 330px;" />
+          <input type="password" name="cardNumber" id="cardNumber" placeholder="Card Number" style="width: 330px;" required />
           <br />
           <br />
-          <input type="number" name="month" id="month" placeholder="MM" style="width: 90px;" />
+          <input type="number" name="month" id="month" placeholder="MM" style="width: 90px;" min="01" max="12" required />
           /
-          <input type="number" name="year" id="year" placeholder="YYYY" style="width: 90px; margin-right: 20px;" />
-          <input type="password" name="cvv" id="cvv" placeholder="CCV" style="width: 110px;" />
+          <input type="number" name="year" id="year" placeholder="YYYY" style="width: 90px; margin-right: 20px;" min="2020" required />
+          <input type="password" name="cvv" id="cvv" placeholder="CCV" style="width: 110px;" required />
           <br><br>
           <input type="submit" value="Submit">
           <input type="button" value="Cancel">
@@ -83,7 +68,6 @@
       </div>
 
     </div>
-  </div>
   <footer class="site-footer section-footer">
     <div class="container container-footer">
       <nav id="footer-nav" class="navigation">

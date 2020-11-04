@@ -5,10 +5,11 @@
     $objectReadTable = new Database("localhost", "root", "gym");
 
     #read method
-    #$result ='';
-    #$result = $objectReadTable -> read("users");
-
-    #var_dump($result[0]['usuario']);
+    $result ='';
+    $result = $objectReadTable -> read('userpaymentdata');
+    $count = count($result);
+    
+    var_dump($result[$count-1]['id']);
     
     #create method
     #$result = $objectReadTable -> create('users', array('usuario', 'pass'), array('usuarioPHP', 'desdePHP'));
