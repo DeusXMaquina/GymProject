@@ -49,6 +49,7 @@
                 <th>Description</th>
                 <th>Subtotal</th>
                 <tr>
+
                     <td>***Membership type***</td>
                     <td>$000.00</td>
                 </tr>
@@ -60,6 +61,23 @@
                 <th>User Info</th>
                 <th>Total</th>
                 <tr>
+                    <?php
+                    include_once '/GymProject/Database/Database.php';
+                    $objectReadInvoice = new Database('localhost', 'root', 'gym');
+
+                    $result = '';
+                    $result = $objectReadInvoice->read("userpaymentdata");
+
+                    function findUserName($paymentDataArray, $id)
+                    {
+                        for ($index = 0; $index < count($paymentDataArray); $index++) {
+                            if ($paymentDataArray[$index]['id'] === $id) {
+                                echo '<td>'.$paymentDataArray[$index]['fullName'].'</td>';
+                            }
+                        }
+                        echo '<td> No User Name found </td>';
+                    }
+                    ?>
                     <td>User</td>
                     <td>$000.00</td>
                 </tr>

@@ -25,22 +25,32 @@ id int PRIMARY KEY AUTO_INCREMENT,
     update_at date
 );
 
+
 CREATE TABLE courses (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
     idInstructor INT NOT NULL,
     description TEXT NOT NULL,
-    FOREIGN KEY(idInstructor) REFERENCES instructor(id)
+    FOREIGN KEY(idInstructor) REFERENCES instructors(id)
     );
 
+CREATE TABLE userPaymentData (
+id int PRIMARY KEY AUTO_INCREMENT,
+    idUser int not null,
+    fullName varchar(255) not null, 
+    cardNumber varchar(255) not null, 
+    cardExpDate date,
+    cvv varchar(30) not null, 
+    FOREIGN KEY (idUser) REFERENCES users(id)
+);
 
 CREATE TABLE payments (
     id int PRIMARY KEY AUTO_INCREMENT not null,
-    idUser int not null,
+    idUserPaymentData int not null,
     dateIssued date not null, 
     total float not null,
-    FOREIGN KEY(idUser) REFERENCES users(id)
-);
+    FOREIGN KEY(idUserPaymentData) REFERENCES userpaymentdata(id)
+)
 
 CREATE TABLE paymentsDetail (
     id int PRIMARY KEY AUTO_INCREMENT not null,
