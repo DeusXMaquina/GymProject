@@ -32,12 +32,12 @@
 
       <!-- Membership-->
       <div>
-        <form class="payment">
+        <form action="/GymProject/Payments/Controllers/controllerCreatePaymentData.php" method="POST" class="payment">
           <h3>Select your membership:</h3>
           <table>
             <tr>
               <td>
-                <input type="checkbox" name="GoldMembership" id="1" />
+                <input type="checkbox" name="GoldMembership" id="GoldCheckbox" />
               </td>
               <td>Gold Membership:</td>
               <td>
@@ -46,7 +46,7 @@
             </tr>
             <tr>
               <td>
-                <input type="checkbox" name="SilverMembership" id="2" />
+                <input type="checkbox" name="SilverMembership" id="SilverCheckbox" />
               </td>
               <td>Silver Membership:</td>
               <td>all classes</td>
@@ -55,7 +55,7 @@
           <br />
           <!-- Full name -->
           <h3>Insert your credit or debit card full information: </h3>
-          <input type="text" name="firstName" id="" placeholder="Full name as shown on credit/debit card" style="width: 330px;" />
+          <input type="text" name="fullName" id="fullName" placeholder="Full name as shown on credit/debit card" style="width: 330px;" />
 
           <!-- Card type-->
           <div class="card">
@@ -68,15 +68,15 @@
           </div>
 
           <br />
-          <input type="password" name="cardNumber" id="" placeholder="Card Number" style="width: 330px;" />
+          <input type="password" name="cardNumber" id="cardNumber" placeholder="Card Number" style="width: 330px;" />
           <br />
           <br />
-          <input type="number" name="" id="" placeholder="MM" style="width: 90px;" />
+          <input type="number" name="month" id="month" placeholder="MM" style="width: 90px;" />
           /
-          <input type="number" name="" id="" placeholder="YYYY" style="width: 90px; margin-right: 20px;" />
-          <input type="password" name="" id="" placeholder="CCV" style="width: 110px;" />
+          <input type="number" name="year" id="year" placeholder="YYYY" style="width: 90px; margin-right: 20px;" />
+          <input type="password" name="cvv" id="cvv" placeholder="CCV" style="width: 110px;" />
           <br><br>
-          <input type="button" value="Submit">
+          <input type="submit" value="Submit">
           <input type="button" value="Cancel">
           <br><br>
         </form>
