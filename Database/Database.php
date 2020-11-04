@@ -46,27 +46,29 @@
     public function create($table, $fieldNames, $values){
 
       # function to build a string with values that SQL can Read
-      function buildString ($array, $stringFlag) {
-        $finalString = '';
-        $length = count($array);
-        if ($stringFlag) {
-          for ($index = 0; $index < $length; $index++) {
-            if ($index == $length -1) {
-              $finalString .= $array[$index];
-            } else {
-              $finalString .= $array[$index] .', ';
+      if (!function_exists('buildString')) {
+        function buildString ($array, $stringFlag) {
+          $finalString = '';
+          $length = count($array);
+          if ($stringFlag) {
+            for ($index = 0; $index < $length; $index++) {
+              if ($index == $length -1) {
+                $finalString .= $array[$index];
+              } else {
+                $finalString .= $array[$index] .', ';
+              }
+            }
+          } else {
+            for ($index = 0; $index < $length; $index++) {
+              if ($index == $length -1) {
+                $finalString .= "'".$array[$index]."'";
+              } else {
+                $finalString .= "'".$array[$index]."'" .', ';
+              }
             }
           }
-        } else {
-          for ($index = 0; $index < $length; $index++) {
-            if ($index == $length -1) {
-              $finalString .= "'".$array[$index]."'";
-            } else {
-              $finalString .= "'".$array[$index]."'" .', ';
-            }
-          }
+          return $finalString;
         }
-        return $finalString;
       }
 
       $connection = new mysqli($this -> hostname, $this -> username, $this -> password, $this -> database);
