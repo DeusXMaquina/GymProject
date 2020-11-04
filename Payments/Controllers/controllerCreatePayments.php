@@ -2,7 +2,7 @@
 
 include_once 'C:\LibraryApps\XAMPP\htdocs\GymProject\Payments\Controllers\controllerCreateUserPayment.php';
 include_once 'C:\LibraryApps\XAMPP\htdocs\GymProject\Payments\Controllers\controllerCreatePaymentsGeneral.php';
-#include_once 'C:\LibraryApps\XAMPP\htdocs\GymProject\Payments\Controllers\controllerCreatePaymentsDetail.php';
+include_once 'C:\LibraryApps\XAMPP\htdocs\GymProject\Payments\Controllers\controllerCreatePaymentsDetail.php';
 
 $fullName = $_POST['fullName'];
 $card = $_POST['cardNumber'];
@@ -16,5 +16,9 @@ $createUserPayment = $objectCreateUserPayment->createUserPayment();
 $objectCreateGeneral = new paymentsGeneral($membership);
 $createPaymentsGeneral = $objectCreateGeneral->createPaymentsGeneral();
 
-echo "<h3" . $createUserPayment . "</h3>";
-var_dump ($createPaymentsGeneral);
+$objectCreateDetail = new paymentsDetail($membership);
+$createPaymentDetails = $objectCreateDetail->createPaymentsDetail();
+
+var_dump($createUserPayment);
+var_dump($createPaymentsGeneral);
+var_dump($createPaymentDetails);

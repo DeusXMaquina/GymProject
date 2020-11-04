@@ -30,7 +30,6 @@ class paymentsGeneral
         }
 
         #create payments
-
         $id = (string)getIdPaymentData($objectCreatePaymentData);
         $getDate = (string)date("Y/m/d");
         return $objectCreatePaymentData->create('payments', array('idUserPaymentData', 'dateIssued', 'total'), array((string)$id, (string) $getDate, (string)$total));
