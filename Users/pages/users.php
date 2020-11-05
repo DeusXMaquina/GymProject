@@ -43,22 +43,19 @@
 
         <?php
             include_once '/xampp/htdocs/GymProject/Database/Database.php';
-            /*include_once "Database.php";*/
 
             $objectReadTable = new Database('localhost', 'root', 'gym');
-            objectReadTable.testconnect();
-            $userResults = $objectReadTable -> read('users');
+            $userArray = $objectReadTable -> read('users');
 
             for ($index = 0; $index <= count($userArray); $index++) {
-                if ($userArray[$index]['usuario'] === $usuario
-                && $userArray[$index]['pass'] === $pass && $index>0){
+                if ($userArray[$index]['usuario'] === $usuario && $userArray[$index]['pass'] === $pass && $index>0){
                     echo '<script>myfunction()</script>';
                     return $userArray[$index]['id'];
-                }
-                if($index == count($userArray)){
+                } else{
                     echo '<script>myOtherfunction()</script>';
                 }
             }
+            var_dump("hello");
             
         ?>
 <!---------------------------------  PHP ENDS -------------------------------------->
