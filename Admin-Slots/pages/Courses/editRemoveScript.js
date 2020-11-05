@@ -7,10 +7,18 @@ function setCookieValue(event, value) {
     document.cookie = cookieNames[event.cellIndex] + '=' + value
 }
 
-function removeCookies() {
-}
+(function removeCookies() {
+  var cookieNames = [
+    'course',
+    'instructor',
+    'description',
+    'id',
+    'originalInstructor'
+  ]
+  cookieNames.forEach(cookie => document.cookie = cookie + '=;' + 'expires = 1/1/2020;') 
+})()
 
-document.querySelectorAll('#coursesTable td').forEach(event => event.addEventListener('click', function() {
+document.querySelectorAll('#coursesTable td').forEach(event => event.addEventListener('dblclick', function() {
   if (event.innerText !== 'UpdateRemove') {
     var value = window.prompt('Enter new value: ', event.innerText)
     if (value !== '') {
