@@ -48,15 +48,14 @@
             $userArray = $objectReadTable -> read('users');
 
             for ($index = 0; $index <= count($userArray); $index++) {
-                if ($userArray[$index]['usuario'] === $usuario && $userArray[$index]['pass'] === $pass){
+                if ($userArray[$index]['usuario'] === 'usuario' && $userArray[$index]['pass'] === 'pass'){
                     echo '<script>myfunction()</script>';
                     return $userArray[$index]['id'];
                 } else{
                     echo '<script>myOtherfunction()</script>';
                 }
             }
-            var_dump("hello");
-            
+
         ?>
 <!---------------------------------  PHP ENDS -------------------------------------->
 

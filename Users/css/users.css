@@ -92,15 +92,12 @@ img {
 .gym-calendar{
     padding-top: 2rem;
     margin-top: 5rem;
-    display: grid;
-    align-content: center;
+    display: flex;
     margin-left: 60rem;
-    border-bottom: -5rem;
 }
 
 .gym-table {
-    align-items: center;
-    padding-bottom: 10rem;
+    padding: 2rem 2rem 2rem 2rem;
     margin-bottom: 5rem;
     border: 1px solid black;
     width:50%;
