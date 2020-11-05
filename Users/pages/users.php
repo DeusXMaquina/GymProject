@@ -7,7 +7,8 @@
     <title>template</title>
     <link rel="stylesheet" href="/GymProject/css/normalize.css">
     <link rel="stylesheet" href="/GymProject/Users/css/users.css"/>
-    <script src="/JSscripts/slideshow.js"></script>
+    <script> function myFunction(){ alert("Correct user"); } </script>
+    <script> function myOtherFunction(){ alert("User not found"); } </script>
 </head>
 
 <body>
@@ -31,13 +32,36 @@
             <h2>Please login to get classes availability</h2>
             <form action="/action_page.php">
                 <label for="fname">User:</label><br>
-                <input type="text" id="user" name="user" placeholder="user"><br>
+                <input type="text" id="usuario" name="usuario" placeholder="usuario"><br>
                 <label for="lname" style="text: bold;">Password:</label><br>
-                <input type="text" id="password" name="password" placeholder="password"><br><br>
-                <input type="submit" value="Submit">
+                <input type="text" id="pass" name="pass" placeholder="pass"><br><br>
+                <input type="submit" value="Submit" onclick="myFunction()">
             </form>
         </div>
-    </section>
+
+<!-----------------------------------  PHP STARTS ---------------------------------->
+
+        <?php
+            include_once '/xampp/htdocs/GymProject/Database/Database.php';
+            /*include_once "Database.php";*/
+
+            $objectReadTable = new Database('localhost', 'root', 'gym');
+            objectReadTable.testconnect();
+            $userResults = $objectReadTable -> read('users');
+
+            for ($index = 0; $index <= count($userArray); $index++) {
+                if ($userArray[$index]['usuario'] === $usuario
+                && $userArray[$index]['pass'] === $pass && $index>0){
+                    echo '<script>myfunction()</script>';
+                    return $userArray[$index]['id'];
+                }
+                if($index == count($userArray)){
+                    echo '<script>myOtherfunction()</script>';
+                }
+            }
+            
+        ?>
+<!---------------------------------  PHP ENDS -------------------------------------->
 
     <!--Gym calendar section-->
     <section class="gym-calendar" >
@@ -240,7 +264,8 @@
     </section>
     <div>
     <a href="https://www.who.int/es/emergencies/diseases/novel-coronavirus-2019">
-        <img astyle="width: 100%; margin-bottom: 0%; padding-bottom: 0px; height: auto;" src="/GymProject/Users/pictures/covid_banner.png" alt="covid-19 banner">
+        <img astyle="width: 100%; margin-bottom: 0%; padding-bottom: 0px; height: auto;"
+        src="/GymProject/Users/pictures/covid_banner.png" alt="covid-19 banner">
     </a>
     </div> 
 
