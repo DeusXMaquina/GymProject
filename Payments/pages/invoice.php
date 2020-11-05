@@ -31,9 +31,14 @@
         <div class="main-info">
             <div>
                 <h2>CEDEFI</h2>
-                <label for="date">Date Issued:</label>
-                <br>
-                <label for="invoice">Invoice Number:</label>
+                <?php
+                include_once 'C:\LibraryApps\XAMPP\htdocs\GymProject\Payments\Controllers\controllerReadInvoice.php';
+                $objectReadInvoice = new ReadInvoice();
+                $date = $objectReadInvoice->getDateIssued();
+                echo "<label for='date'>Date Issued: " . $date . "</label> <br>";
+                $invoiceNumber = $objectReadInvoice->getInvoiceNumber();
+                echo "<label for='invoice'>Invoice Number: 00" . $invoiceNumber . "</label>";
+                ?>
             </div>
             <div style="text-align: right;">
                 <h3>Av. Tepeyac 4800,</h3>
@@ -49,9 +54,12 @@
                 <th>Description</th>
                 <th>Subtotal</th>
                 <tr>
-
-                    <td>***Membership type***</td>
-                    <td>$000.00</td>
+                    <?php
+                    $description = $objectReadInvoice->getPurchase();
+                    echo "<td>" . $description . "</td>";
+                    $uniquePrice = $objectReadInvoice->getTotalPrice();
+                    echo "<td> $" . $uniquePrice . "</td>";
+                    ?>
                 </tr>
             </table>
         </div>
@@ -62,24 +70,10 @@
                 <th>Total</th>
                 <tr>
                     <?php
-                    include_once '/GymProject/Database/Database.php';
-                    $objectReadInvoice = new Database('localhost', 'root', 'gym');
-
-                    $result = '';
-                    $result = $objectReadInvoice->read("userpaymentdata");
-
-                    function findUserName($paymentDataArray, $id)
-                    {
-                        for ($index = 0; $index < count($paymentDataArray); $index++) {
-                            if ($paymentDataArray[$index]['id'] === $id) {
-                                echo '<td>'.$paymentDataArray[$index]['fullName'].'</td>';
-                            }
-                        }
-                        echo '<td> No User Name found </td>';
-                    }
+                    $fullName = $objectReadInvoice->getFullName();
+                    echo "<td>" . $fullName . "</td>";
+                    echo "<td> $" . $uniquePrice . "</td>";
                     ?>
-                    <td>User</td>
-                    <td>$000.00</td>
                 </tr>
             </table>
         </div>
