@@ -48,7 +48,7 @@
             $userArray = $objectReadTable -> read('users');
 
             for ($index = 0; $index <= count($userArray); $index++) {
-                if ($userArray[$index]['usuario'] === $usuario && $userArray[$index]['pass'] === $pass && $index>0){
+                if ($userArray[$index]['usuario'] === $usuario && $userArray[$index]['pass'] === $pass){
                     echo '<script>myfunction()</script>';
                     return $userArray[$index]['id'];
                 } else{
@@ -63,7 +63,7 @@
     <!--Gym calendar section-->
     <section class="gym-calendar" >
         <div class="gym-table">
-            <table style="width:50%">
+            <table>
               <div>
                 <tr>
                     <th colspan="8">Month</th>
