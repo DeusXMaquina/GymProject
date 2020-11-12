@@ -35,6 +35,7 @@ td {
 
 td:hover {
     color: #ed8a0b;
+    cursor: pointer;
 }
 
   /* classes */
@@ -133,4 +134,8 @@ td:hover {
     margin: 0;
     opacity: 1;
     transition: 0s
+  }
+
+  .success-message {
+    text-align: center;
   }

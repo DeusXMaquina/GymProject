@@ -42,7 +42,7 @@
 
       $result = $objectCreateCourse -> create('courses', array('name', 'idInstructor','description'), array($_POST['course'], $idInstructor = $_POST['idInstructor'], $_POST['description']));
 
-      echo '<h3>$result<h3>';
+      echo '<h2 style="text-align:center">'.$result.'<h2>';
 
   ?>
 
