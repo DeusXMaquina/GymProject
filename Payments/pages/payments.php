@@ -61,7 +61,7 @@
           <input type="number" name="year" id="year" placeholder="YYYY" style="width: 90px; margin-right: 20px;" min="2020" required />
           <input type="password" name="cvv" id="cvv" placeholder="CCV" style="width: 110px;" required />
           <br><br>
-          <input type="submit" value="Submit">
+          <input  type="submit" value="Submit">
           <input type="button" value="Cancel">
           <br><br>
         </form>

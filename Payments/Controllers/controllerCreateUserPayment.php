@@ -24,4 +24,5 @@ class userPayment
         $result = $objectCreatePaymentData->create('userpaymentdata', array('idUser', 'fullName', 'cardNumber', 'cardExpDate', 'cvv'), array('1', $this->fullName, $this->card, $this->expDate, $this->cvv));
         return $result;
     }
+
 }
