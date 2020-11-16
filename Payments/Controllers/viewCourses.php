@@ -7,7 +7,7 @@
   <title>Slots Template</title>
   <link rel="stylesheet" href="/GymProject/Admin-Slots/css/normalize.css">
   <link rel="stylesheet" href="/GymProject/Admin-Slots/css/mainTemplate.css" />
-  <link rel='stylesheet' href='/GymProject/Admin-Slots/css/courses/editremovecourses.css'>
+  <link rel='stylesheet' href='/GymProject/Admin-Slots/css/courses/viewcourses.css'>
 </head>
 
 <body>
@@ -31,55 +31,53 @@
   </header>
 
   <!--Title-->
-  <h1 style='text-align:center'>Edit or Remove Courses</h1>
+  <h1 style='text-align:center'>Show Courses</h1>
 
+  <!--Table class-->
+  <table>
+    <tr>
+      <th>Id</th>
+      <th>Course</th>
+      <th>Instructor</th>
+      <th>Description</th>
+    </tr>
+    <?php
+      include_once '/xampp/htdocs/GymProject/Database/Database.php';
 
-<?php
+      $objectReadTable = new Database('localhost', 'root', 'gym');
+      $instructorResults = $objectReadTable -> read('instructor');
+      $coursesResults = $objectReadTable -> read('courses');
 
-  error_reporting(E_ALL & ~E_NOTICE);
-
-  include_once '/xampp/htdocs/GymProject/Database/Database.php';
-
-  $DatabaseObject = new Database('localhost', 'root', 'gym');
-
-  $instructorResults = $DatabaseObject -> read('instructor');
-
-  function findInstructorId ($instructorArray, $nombre, $database) {
-    for ($index = 0; $index < count($instructorArray); $index++) {
-      if ($instructorArray[$index]['nombre'] === $nombre){
-        return $instructorArray[$index]['id'];
+      function findInstructorName ($instructorArray, $id) {
+        for ($index = 0; $index < count($instructorArray); $index++) {
+          if ($instructorArray[$index]['id'] === $id){
+            return $instructorArray[$index]['nombre'];
+          }
+        }
+        return 'No Instructor Assigned';
       }
-    }
-    $database -> create('instructor', array('nombre'), array($nombre));
-    findInstructorId($instructorArray, $nombre, $database);
-  }
+
+      function insertTableData ($array, $instructor) {
+        $instructorFlag = 0;
+        foreach ($array as $val) {
+          if($instructorFlag === 2){
+            echo '<td>'.findInstructorName($instructor, $val).'</td>';
+            $instructorFlag++;
+          } else {
+            echo '<td>'.$val.'</td>';
+            $instructorFlag++;
+          }
+         }
+       }
+
+       for ($indexRow = 0; $indexRow < count($coursesResults); $indexRow ++) {
+         echo '<tr>'.insertTableData($coursesResults[$indexRow], $instructorResults).'</tr>';
+       }
+    ?>
+  </table>
   
-  $updateColumns = array();
-  $updateValues = array();
 
-  if ($_COOKIE['course']) {
-    array_push($updateColumns, 'name');
-    array_push($updateValues, $_COOKIE['course']);
-  }
-
-  if ($_COOKIE['instructor']) {
-    $instructorId = findInstructorId($instructorResults, $_COOKIE['instructor'], $DatabaseObject);
-    array_push($updateColumns, 'idInstructor');
-    array_push($updateValues, $instructorId);
-  }
-
-  if ($_COOKIE['description']) {
-    array_push($updateColumns, 'description');
-    array_push($updateValues, $_COOKIE['description']);
-  }
-
-  $result = $DatabaseObject -> update('courses',$updateColumns,$updateValues,'id', $_COOKIE['id']);
-
-
-  echo '<h2 class="success-message">'.$result.'</h2>';
-?>
-
-<footer class="site-footer section-footer footer">
+  <footer class="site-footer section-footer footer">
     <div class="container container-footer">
       <nav id="footer-nav" class="navigation">
         <a href="#"></a>

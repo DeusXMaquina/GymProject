@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>template</title>
     <link rel="stylesheet" href="/GymProject/css/normalize.css">
-    <link rel="stylesheet" href="/Schedule/schedule.css" />
+    <link rel="stylesheet" href="/GymProject/Users/css/users.css"/>
     <script src="/JSscripts/slideshow.js"></script>
 </head>
 
@@ -14,7 +14,7 @@
     <header class="site-header">
         <nav class="navigation">
             <a href="#">
-                <img style="height: 80px; width: 80px;" src="/pictures/cedefiOf.png" alt="cedefiLogo" />
+                <img style="height: 80px; width: 80px;" src="/GymProject/pictures/cedefiOf.png" alt="cedefiLogo" />
             </a>
             <a href="index.html">Home</a>
             <a href="">Users</a>
@@ -23,43 +23,24 @@
             <a href="/Users/">Payments</a></li>
         </nav>
     </header>
-
-    <!--Images section showing people trainng gym-->
-    <!--https://www.w3schools.com/howto/howto_js_slideshow.asp-->
-    <section class="image-span">
-        <h2>Span images of people trainig and classes</h2>
-        <div class="slideshow-container">
-        <!-- Full-width images with number and caption text -->
-        <div class="mySlides fade">
-          <img src="spanCarousel/gym1.jpg" style="width:50%">
+    
+    <div>
+    <img style="padding-bottom: 30px; width: 100%; height: auto;" src="/GymProject/Users/pictures/weights.jpg" alt="weights">
+    </div>
+      <div class="" style='text-align:center'>
+            <h2>Please login to get classes availability</h2>
+            <form action="/action_page.php">
+                <label for="fname">User:</label><br>
+                <input type="text" id="user" name="user" placeholder="user"><br>
+                <label for="lname" style="text: bold;">Password:</label><br>
+                <input type="text" id="password" name="password" placeholder="password"><br><br>
+                <input type="submit" value="Submit">
+            </form>
         </div>
-
-        <div class="mySlides fade">
-          <img src="spanCarousel/gym2.jpg" style="width:50%">
-        </div>
-
-        <div class="mySlides fade">
-          <img src="spanCarousel/gym3.jpg" style="width:50%">
-        </div>
-
-        <!-- Next and previous buttons -->
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-      </div>
-      <br>
-
-      <!-- The dots/circles -->
-      <div style="text-align:center">
-        <span class="dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-        <span class="dot" onclick="currentSlide(3)"></span>
-      </div>
     </section>
 
     <!--Gym calendar section-->
-    <section class="gym-calendar">
-        <h2>Gym/fitness classes calendar</h2>
-        <p>Fitness classes given (dropdown, left align)</p>
+    <section class="gym-calendar" >
         <div class="gym-table">
             <table style="width:50%">
               <div>
@@ -80,7 +61,7 @@
                     <th>Fri</th>
                     <th>Sat</th>
                     <th>Sun</th>
-                </tr>
+                </tr> 
               </div>
               <div class="activities">
                 <tr>
@@ -257,12 +238,17 @@
                 </table>
         </div>
     </section>
+    <div>
+    <a href="https://www.who.int/es/emergencies/diseases/novel-coronavirus-2019">
+        <img astyle="width: 100%; margin-bottom: 0%; padding-bottom: 0px; height: auto;" src="/GymProject/Users/pictures/covid_banner.png" alt="covid-19 banner">
+    </a>
+    </div> 
 
     <footer class="site-footer section-footer">
         <div class="container container-footer">
             <nav id="footer-nav" class="navigation">
                 <a href="#">
-                    <img style="height: 30px; width: 30px;" src="/pictures/cedefiOf.png" alt="cedefiLogo" />
+                    <img style="height: 30px; width: 30px;" src="/GymProject/pictures/cedefiOf.png" alt="cedefiLogo" />
                 </a>
                 <a href="index.html">Home</a>
                 <a href="">Users</a>
@@ -270,7 +256,7 @@
                 <a href="">Instructors</a>
                 <a href="">Support</a></li>
             </nav>
-            <img style="height: 50px; width: 50px;" src="/pictures/cedefiOf.png" alt="cedefiLogo" />
+            <img style="height: 50px; width: 50px;" src="/GymProject/pictures/cedefiOf.png" alt="cedefiLogo" />
             <p class="copyright">Copyright &copy; Universidad del Valle de Atemajac </p>
         </div>
     </footer>

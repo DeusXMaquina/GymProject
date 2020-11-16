@@ -16,7 +16,7 @@
       <a href="#">
         <img style="height: 80px; width: 80px;" src="/GymProject/pictures/cedefiOf.png" alt="cedefiLogo" />
       </a>
-      <a href="/Admin-Slots/pages/mainSlots/mainSlots.html">Home</a>
+      <a href="/GymProject/Admin-Slots/pages/mainSlots/mainSlots.html">Home</a>
       <div class='dropdown'>
         <a class='dropbtn'>Courses</a>
         <div class='dropdown-content'>
@@ -34,17 +34,44 @@
   <h1 style='text-align:center'>Courses</h1>
 
   <!--Card class-->
-  <?php
+  <div class='card'>
+    <form class='slots' method='post' action='controllerCreateCourse.php'>
+      <span>
+        <br>
+        <label class='label-slots'>Course Name</label> <br>
+        <input class='input-slots' name='course'> <br><br>
+      </span>
+      <span>
+        <label class='label-slots'>Brief Description and routine</label>
+        <div>
+          <textarea class='input-slots' cols='40' rows='10' name='description'> </textarea><br><br>
+        </div>
+      </span>
+        <!--Dropdown class-->
+        <div class='instructor-dropdown'>
+          <select name='idInstructor'>
+          <option value="0">Select instructor</option>
+            <?php
+              include_once '/xampp/htdocs/GymProject/Database/Database.php';
 
-    include_once '/xampp/htdocs/GymProject/Database/Database.php';
+              $objectReadTable = new Database("localhost", "root", "gym");
 
-      $objectCreateCourse = new Database('localhost', 'root', 'gym');
+              $result = $objectReadTable -> read("instructor");
 
-      $result = $objectCreateCourse -> create('courses', array('name', 'idInstructor','description'), array($_POST['course'], $idInstructor = $_POST['idInstructor'], $_POST['description']));
+              (function($array){
+                for ($index = 0; $index < count($array); $index++){
+                  $value = $index+1;
+                  echo '<option value="'.$array[$index]['id'].'">'.$array[$index]['nombre'].'</option>';
+                }
+              })($result)
+            ?>
+          </select>
+        </div>
+        <br><br>
+        <input style='padding:5px; margin:10px' type='submit' value='Add'>
+      </form>
+  </div>
 
-      echo '<h2 style="text-align:center">'.$result.'<h2>';
-
-  ?>
 
   <footer class="site-footer section-footer footer">
     <div class="container container-footer">
@@ -60,4 +87,4 @@
     </div>
   </footer>
 </body>
-</html>
+</html> 
