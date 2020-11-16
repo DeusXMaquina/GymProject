@@ -40,7 +40,10 @@
         </div>
 
 <!-----------------------------------  PHP STARTS ---------------------------------->
-
+<!-----------------------------------  
+    ../views/ja/myScript.js // Para regresar una carpeta
+    
+ ---------------------------------->
         <?php
             include_once '/xampp/htdocs/GymProject/Database/Database.php';
 
