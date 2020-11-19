@@ -1,38 +1,54 @@
 /* ---MASTER QUERY --- */ 
 
-    /* Create Database 'gym' */
-
 CREATE DATABASE gym;
-
-    /* Go to dabase gym */
 
 USE gym;
 
-    /* Create tables */
-
 CREATE TABLE users(
-    id INT PRIMARY KEY AUTO_INCREMENT, 
-    usuario VARCHAR(255) NOT NULL,
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    status BIT,
+    user VARCHAR(255) NOT NULL,
     pass VARCHAR(255) NOT null,
     create_at date, 
-    update_at date
+    update_at date,
+    available_classes int #max 7
 );
 
+INSERT INTO users (status, user, pass, create_at, update_at, available_classes)
+VALUES (1, 'James', '1', CURRENT_DATE(), "2017-06-15", 7);
+INSERT INTO users (status, user, pass, create_at, update_at, available_classes)
+VALUES (1, 'Tiffany', '2', CURRENT_DATE(), "2017-06-15", 7);
+INSERT INTO users (status, user, pass, create_at, update_at, available_classes)
+VALUES (1, 'Ximena', '3', CURRENT_DATE(), "2017-06-15", 7);
+
 CREATE TABLE instructors(
-id int PRIMARY KEY AUTO_INCREMENT, 
-    nombre varchar(255) NOT Null,
+	idInstructor int PRIMARY KEY AUTO_INCREMENT, 
+    name varchar(255) NOT Null,
     create_at date, 
     update_at date
 );
+
+INSERT INTO instructors(name, create_at, update_at)
+VALUES ('Armando', CURRENT_DATE(), "2017-06-15");
+INSERT INTO instructors(name, create_at, update_at)
+VALUES ('Regina', CURRENT_DATE(), "2017-06-15");
+INSERT INTO instructors(name, create_at, update_at)
+VALUES ('Pablo', CURRENT_DATE(), "2017-06-15");
+
 
 CREATE TABLE courses (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
-    idInstructor INT NOT NULL,
     description TEXT NOT NULL,
-    FOREIGN KEY(idInstructor) REFERENCES instructor(id)
+    idInstructor int not null,
+    FOREIGN KEY (idInstructor) REFERENCES instructors(idInstructor)
     );
 
+INSERT INTO courses(name, description, idInstructor)
+VALUES('Spinning', 'Spinning classes', 1);
+
+INSERT INTO courses(name, description, idInstructor)
+VALUES('Zumba', 'Zumba classes', 2);
 
 CREATE TABLE payments (
     id int PRIMARY KEY AUTO_INCREMENT not null,
@@ -49,3 +65,14 @@ CREATE TABLE paymentsDetail (
     uniquePrice float not null,
     FOREIGN KEY(idPayments) REFERENCES payments(id)
 );
+
+CREATE TABLE UserCourses (
+    id int PRIMARY KEY AUTO_INCREMENT not null,
+    idPayments int not null,
+    description varchar(255) not null,
+    uniquePrice float not null,
+    FOREIGN KEY(idPayments) REFERENCES payments(id)
+);
+
+INSERT INTO UserCourses()
+VALUES();
