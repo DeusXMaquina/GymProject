@@ -32,10 +32,13 @@
         <form action="/GymProject/Payments/Controllers/controllerCreatePayments.php" method="POST" class="payment">
           <!-- Membership-->
           <h3>Select your membership:</h3>
-          <input type="radio" name="membership" id="gold" value="gold">
+
+          <input type="radio" name="membership" id="gold" value="gold" checked>
           <label for="gold">Gold Membership: all clases + Snack Bar & Shower access ONLY $99 USD</label><br>
           <input type="radio" name="membership" id="silver" value="silver">
           <label for="silver">Silver Membership: All classes FOR $65 USD</label>
+
+          
           <br />
 
           <!-- Full name -->
