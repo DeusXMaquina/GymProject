@@ -26,13 +26,40 @@ id int PRIMARY KEY AUTO_INCREMENT,
 );
 
 CREATE TABLE courses (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(255) NOT NULL,
-    idInstructor INT NOT NULL,
-    description TEXT NOT NULL,
-    FOREIGN KEY(idInstructor) REFERENCES instructor(id)
-    );
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  idInstructor INT NOT NULL,
+  description TEXT NOT NULL,
+  FOREIGN KEY(idInstructor) REFERENCES instructor(id)
+);
 
+CREATE timeslots (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    timeFrame VARCHAR(255) NOT NULL
+);
+
+INSERT INTO timeslots (timeFrame) VALUES ('7:00 to 8:00');
+INSERT INTO timeslots (timeFrame) VALUES ('8:00 to 9:00');
+INSERT INTO timeslots (timeFrame) VALUES ('9:00 to 10:00');
+INSERT INTO timeslots (timeFrame) VALUES ('10:00 to 11:00');
+INSERT INTO timeslots (timeFrame) VALUES ('11:00 to 12:00');
+INSERT INTO timeslots (timeFrame) VALUES ('12:00 to 13:00');
+INSERT INTO timeslots (timeFrame) VALUES ('13:00 to 14:00');
+INSERT INTO timeslots (timeFrame) VALUES ('14:00 to 15:00');
+INSERT INTO timeslots (timeFrame) VALUES ('15:00 to 16:00');
+INSERT INTO timeslots (timeFrame) VALUES ('16:00 to 17:00');
+INSERT INTO timeslots (timeFrame) VALUES ('17:00 to 18:00');
+INSERT INTO timeslots (timeFrame) VALUES ('18:00 to 19:00');
+INSERT INTO timeslots (timeFrame) VALUES ('19:00 to 20:00');
+INSERT INTO timeslots (timeFrame) VALUES ('20:00 to 21:00');
+
+CREATE TABLE courseSlot (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  idCourse INT NOT NULL,
+  idTime INT NOT NULL,
+  FOREIGN KEY(idCourse) REFERENCES courses(id),
+  FOREIGN KEY(idTime) REFERENCES timeslots(id)
+);
 
 CREATE TABLE payments (
     id int PRIMARY KEY AUTO_INCREMENT not null,
