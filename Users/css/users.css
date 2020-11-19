@@ -82,112 +82,27 @@ img {
 .site-header nav a:last-of-type {
     margin-bottom: 10;
 }
+
 /**************************** Starts: BODY *******************************/
 
-/*---------------Starts: ImageSpan--------------*/
-
-* {box-sizing:border-box}
-
-/* Slideshow container */
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: 5rem auto 1rem auto;
+.body{
+    background-color: #f9e4b7;
 }
 
-/* Hide the images by default */
-.mySlides {
-  display: none;
-  max-width: 100%;
-  height: auto;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  padding: 5px auto 5px auto;
+.gym-calendar{
+    padding-top: 2rem;
+    margin-top: 5rem;
+    display: flex;
+    margin-left: 60rem;
 }
 
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin: -22px;
-  padding: 16px;
-  color: #04245b;
-  font-weight: bold;
-  font-size: 15px;
-  transition-delay: 4s;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: grey;
-}
-
-/* The dots/bullets/indicators */
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #04245b;
-  border-radius: 50%;
-  display: inline-block;
-  transition-delay: 7s;
-}
-
-.active, .dot:hover {
-  background-color: white;
-}
-
-/* Fading animation */
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 7s;
-  animation-name: fade;
-  animation-duration: 7s;
-}
-
-@-webkit-keyframes fade {
-  from {opacity: .1}
-  to {opacity: 0}
-}
-
-@keyframes fade {
-  from {opacity: .1}
-  to {opacity: 1}
-}
-
-/*---------------Ends: ImageSpan--------------*/
-
-/*---------------Starts: JSscripts--------------*/
-
-
-
-/*---------------Ends: JSscripts--------------*/
-
-table, th, td {
-    margin: 5rem auto 5rem auto;
-    align-items: center;
+.gym-table {
+    padding: 2rem 2rem 2rem 2rem;
+    margin-bottom: 5rem;
     border: 1px solid black;
+    width:50%;
 }
 
-@media screen and (min-width: 768px){
-    .section{
-        margin-bottom: 0;
-        font-size: 1.5rem;
-        text-decoration: none;
-        width: 70%;
-    }
-
-}
 
 /**************************** Ends: BODY *******************************/
 
@@ -213,7 +128,7 @@ table, th, td {
 }
 
 .seccion-footer {
-    margin-top: 2rem;
+    margin-top: 0rem;
     margin-bottom: 2rem;
 }
 
