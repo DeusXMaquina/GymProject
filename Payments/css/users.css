@@ -89,6 +89,21 @@ img {
     background-color: #f9e4b7;
 }
 
+.gym-calendar{
+    padding-top: 2rem;
+    margin-top: 5rem;
+    display: flex;
+    margin-left: 60rem;
+}
+
+.gym-table {
+    padding: 2rem 2rem 2rem 2rem;
+    margin-bottom: 5rem;
+    border: 1px solid black;
+    width:50%;
+}
+
+
 /**************************** Ends: BODY *******************************/
 
 /**************************** FOOTER *******************************/

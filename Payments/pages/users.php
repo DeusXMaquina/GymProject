@@ -7,8 +7,7 @@
     <title>template</title>
     <link rel="stylesheet" href="/GymProject/css/normalize.css">
     <link rel="stylesheet" href="/GymProject/Users/css/users.css"/>
-    <script> function myFunction(){ alert("Correct user"); } </script>
-    <script> function myOtherFunction(){ alert("User not found"); } </script>
+
 </head>
 
 <body>
@@ -17,254 +16,75 @@
             <a href="#">
                 <img style="height: 80px; width: 80px;" src="/GymProject/pictures/cedefiOf.png" alt="cedefiLogo" />
             </a>
-            <a href="index.html">Home</a>
+            <a href="GymProject/index.html">Home</a>
             <a href="">Users</a>
             <a href="">Slots</a>
             <a href="">Instructors</a>
-            <a href="/Users/">Payments</a></li>
+            <a href="#">Payments</a></li>
         </nav>
     </header>
     
     <div>
     <img style="padding-bottom: 30px; width: 100%; height: auto;" src="/GymProject/Users/pictures/weights.jpg" alt="weights">
     </div>
-      <div class="" style='text-align:center'>
+    <div class="" style="text-align:center; margin: 20px; padding-bottom: 10px;">
             <h2>Please login to get classes availability</h2>
-            <form action="/action_page.php">
+            <form action="/GymProject/Users/Controllers/userController.php" method="POST">
                 <label for="fname">User:</label><br>
-                <input type="text" id="usuario" name="usuario" placeholder="usuario"><br>
+                <input type="text" id="user" name="user" placeholder="user"><br>
                 <label for="lname" style="text: bold;">Password:</label><br>
-                <input type="text" id="pass" name="pass" placeholder="pass"><br><br>
-                <input type="submit" value="Submit" onclick="myFunction()">
+                <input type="text" id="password" name="password" placeholder="password"><br><br>
+                <input type="submit" value="Submit">
             </form>
-        </div>
+    </div>
 
-<!-----------------------------------  PHP STARTS ---------------------------------->
+  <!--Table class-->
+  <table style="width: 100%; padding-bottom: 20px; padding-top: 20px;  border: 1px solid black; margin-bottom: 20px;">
+    <tr>
+      <th>Id</th>
+      <th>Course</th>
+      <th>Description</th>
+      <th>Instructor</th>
+    </tr>
 
-        <?php
-            include_once '/xampp/htdocs/GymProject/Database/Database.php';
+    <?php
+     # include_once '/xampp/htdocs/GymProject/Database/Database.php';
+     # $objectReadTable = new Database('localhost', 'root', 'gym');
 
-            $objectReadTable = new Database('localhost', 'root', 'gym');
-            $userArray = $objectReadTable -> read('users');
+      $instructorResults = $objectReadTable -> read('instructors');
+      $coursesResults = $objectReadTable -> read('courses');
 
-            for ($index = 0; $index <= count($userArray); $index++) {
-                if ($userArray[$index]['usuario'] === $usuario && $userArray[$index]['pass'] === $pass && $index>0){
-                    echo '<script>myfunction()</script>';
-                    return $userArray[$index]['id'];
-                } else{
-                    echo '<script>myOtherfunction()</script>';
-                }
-            }
-            var_dump("hello");
-            
-        ?>
-<!---------------------------------  PHP ENDS -------------------------------------->
+      function findInstructorName ($instructorArray, $id) {
+        for ($index = 0; $index < count($instructorArray); $index++) {
+          if ($instructorArray[$index]['idInstructor'] === $id){
+            return $instructorArray[$index]['name'];
+          }
+        }
+        return 'No Instructor Assigned';
+      }
+  
+      function insertTableData ($array, $instructor) {
+        $instructorFlag = 0;
+        foreach ($array as $val) {
+          if($instructorFlag === 3){
+            echo '<td>'.findInstructorName($instructor, $val).'</td>';
+            $instructorFlag++;
+          } else {
+            echo '<td>'.$val.'</td>';
+            $instructorFlag++;
+          }
+         }
+       }
+    
+       for ($indexRow = 0; $indexRow < count($coursesResults); $indexRow ++) {
+         echo '<tr>'.insertTableData($coursesResults[$indexRow], $instructorResults).'</tr>';
+       }
+    ?>
+  </table>
 
-    <!--Gym calendar section-->
-    <section class="gym-calendar" >
-        <div class="gym-table">
-            <table style="width:50%">
-              <div>
-                <tr>
-                    <th colspan="8">Month</th>
-                </tr>
-                <tr>
-                  <th colspan="8">Week #</th>
-                </tr>
-              </div>
-              <div class="schedule-time">
-                <tr class="week-days">
-                    <th>Time:</th>
-                    <th>Mon</th>
-                    <th>Tu</th>
-                    <th>Thu</th>
-                    <th>Wed</th>
-                    <th>Fri</th>
-                    <th>Sat</th>
-                    <th>Sun</th>
-                </tr> 
-              </div>
-              <div class="activities">
-                <tr>
-                    <td>6:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>7:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>8:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>9:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>10:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>11:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>12:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>13:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>14:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>15:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>16:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>17:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>18:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>19:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>20:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>21:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>22:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-              </div>
-                </table>
-        </div>
-    </section>
-    <div>
     <a href="https://www.who.int/es/emergencies/diseases/novel-coronavirus-2019">
-        <img astyle="width: 100%; margin-bottom: 0%; padding-bottom: 0px; height: auto;"
-        src="/GymProject/Users/pictures/covid_banner.png" alt="covid-19 banner">
-    </a>
-    </div> 
+        <img astyle="width: 100%; margin-bottom: 0%; padding-bottom: auto; height: auto;" src="/GymProject/Users/pictures/covid_banner.png" alt="covid-19 banner">
+    </a> 
 
     <footer class="site-footer section-footer">
         <div class="container container-footer">

@@ -7,7 +7,7 @@
   <title>Slots Template</title>
   <link rel="stylesheet" href="/GymProject/Admin-Slots/css/normalize.css">
   <link rel="stylesheet" href="/GymProject/Admin-Slots/css/mainTemplate.css" />
-  <link rel='stylesheet' href='/GymProject/Admin-Slots/css/courses/editremovecourses.css'>
+  <link rel='stylesheet' href='/GymProject/Admin-Slots/css/courses/courses.css'>
 </head>
 
 <body>
@@ -16,13 +16,13 @@
       <a href="#">
         <img style="height: 80px; width: 80px;" src="/GymProject/pictures/cedefiOf.png" alt="cedefiLogo" />
       </a>
-      <a href="/GymProject/Admin-Slots/pages/mainSlots/mainSlots.html">Home</a>
+      <a href="/Admin-Slots/pages/mainSlots/mainSlots.html">Home</a>
       <div class='dropdown'>
         <a class='dropbtn'>Courses</a>
         <div class='dropdown-content'>
-            <a href='/GymProject/Admin-Slots/pages/Courses/addCourses.php'>Add Course</a>
-            <a href='/GymProject/Admin-Slots/pages/Courses/editRemoveCourses.php'>Edit/Remove Course</a>
-            <a href='/GymProject/Admin-Slots/pages/Courses/viewCourses.php'>View Courses</a>
+          <a href='/GymProject/Admin-Slots/pages/Courses/addCourses.php'>Add Course</a>
+          <a href='/GymProject/Admin-Slots/pages/Courses/editRemoveCourses.php'>Edit/Remove Course</a>
+          <a href='/GymProject/Admin-Slots/pages/Courses/viewCourses.php'>View Courses</a>
         </div>
       </div>
       <a href="">Time Slots</a>
@@ -31,21 +31,22 @@
   </header>
 
   <!--Title-->
-  <h1 style='text-align:center'>Edit or Remove Courses</h1>
+  <h1 style='text-align:center'>Courses</h1>
 
+  <!--Card class-->
+  <?php
 
-<?php
+    include_once '/xampp/htdocs/GymProject/Database/Database.php';
 
-  include_once '/xampp/htdocs/GymProject/Database/Database.php';
+      $objectCreateCourse = new Database('localhost', 'root', 'gym');
 
-  $DatabaseObject = new Database('localhost', 'root', 'gym');
+      $result = $objectCreateCourse -> create('courseSlot', array('idCourse', 'idTime'), array($_POST['idCourse'], $idInstructor = $_POST['idTimeFrame']));
 
-  $result = $DatabaseObject -> delete('courses', 'id', $_COOKIE['id']);
+      echo '<h2 style="text-align:center">'.$result.'<h2>';
 
-  echo '<h2 class="success-message">'.$result.'</h2>';
-?>
+  ?>
 
-<footer class="site-footer section-footer footer">
+  <footer class="site-footer section-footer footer">
     <div class="container container-footer">
       <nav id="footer-nav" class="navigation">
         <a href="#"></a>

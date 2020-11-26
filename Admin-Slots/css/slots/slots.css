@@ -1,40 +1,35 @@
-body {
-    background-image: url(/GymProject/pictures/luis-vidal-FodEsaNZs48-unsplash.jpg);
-    background-position: center center;
-    background-size: cover;
-    height: 100vh;
-    min-height: 60rem;
-}
-
-/* classes */
-
-.label-slots {
-  padding: 15px;
-}
-  
+/* tags */
+img {
+    border-radius: 5px 5px 0 0;
+  }
+  textarea {
+    resize: none;
+  }
+  /* classes */
+  .label-slots {
+    padding: 15px;
+  }
   .slots {
     font-size: 15px;
     line-height: 1.5;
     text-align: center;
   }
-  
-.card {
-  box-shadow: 0 4px 8px 0 rgb(0,0,0,0.2);
-  transition: 0.3s;
-  width: 40%;
-  border-radius: 5px;
-  padding: 2px 16px;
-  border-top: 10px solid rgb(4,36,91);
-  border-top: 10px solid #ed8a0b;
-  background-color: white;
-  margin: 20px;
-  border-style: solid;
-  border-color: #ed8a0b;
-}
-
+  .card {
+    box-shadow: 0 4px 8px 0 rgb(0,0,0,0.2);
+    transition: 0.3s;
+    width: 40%;
+    border-radius: 5px;
+   padding: 2px 16px;
+    padding: 2px 16px;
+    border-style: solid;
+    border-color:rgb(4,36,91);
+    border-top: 10px solid rgb(4,36,91);
+    margin: auto;
+    display: block;
+  }
+    
   .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    cursor: pointer;
   }
     
   .dropbtn {
@@ -65,7 +60,10 @@ body {
   .dropdown-content a:hover {
     background-color:rgb(4,36,91)
   }
-  
   .dropdown:hover .dropdown-content {
     display: block;
+  }
+
+  .item-dropdown {
+    margin:20px;
   }
