@@ -7,7 +7,7 @@
   <title>Slots Template</title>
   <link rel="stylesheet" href="/GymProject/Admin-Slots/css/normalize.css">
   <link rel="stylesheet" href="/GymProject/Admin-Slots/css/mainTemplate.css" />
-  <link rel='stylesheet' href='/GymProject/Admin-Slots/css/courses/editremovecourses.css'>
+  <link rel='stylesheet' href='/GymProject/Admin-Slots/css/slots/editremovetimeslots.css'>
 </head>
 
 <body>
@@ -35,57 +35,13 @@
       </div>
     </nav>
   </header>
-
-  <!--Title-->
-  <h1 style='text-align:center'>Edit or Remove Courses</h1>
-
-
-<?php
-
-  error_reporting(E_ALL & ~E_NOTICE);
-
-  include_once '/xampp/htdocs/GymProject/Database/Database.php';
-
-  $DatabaseObject = new Database('localhost', 'root', 'gym');
-
-  $instructorResults = $DatabaseObject -> read('instructor');
-
-  function findInstructorId ($instructorArray, $nombre, $database) {
-    for ($index = 0; $index < count($instructorArray); $index++) {
-      if ($instructorArray[$index]['nombre'] === $nombre){
-        return $instructorArray[$index]['id'];
-      }
-    }
-    $database -> create('instructor', array('nombre'), array($nombre));
-    findInstructorId($instructorArray, $nombre, $database);
-  }
-  
-  $updateColumns = array();
-  $updateValues = array();
-
-  if ($_COOKIE['course']) {
-    array_push($updateColumns, 'name');
-    array_push($updateValues, $_COOKIE['course']);
-  }
-
-  if ($_COOKIE['instructor']) {
-    $instructorId = findInstructorId($instructorResults, $_COOKIE['instructor'], $DatabaseObject);
-    array_push($updateColumns, 'idInstructor');
-    array_push($updateValues, $instructorId);
-  }
-
-  if ($_COOKIE['description']) {
-    array_push($updateColumns, 'description');
-    array_push($updateValues, $_COOKIE['description']);
-  }
-
-  $result = $DatabaseObject -> update('courses',$updateColumns,$updateValues,'id', $_COOKIE['id']);
-
-
-  echo '<h2 class="success-message">'.$result.'</h2>';
-?>
-
-<footer class="site-footer section-footer footer">
+  <?php
+     include_once '/xampp/htdocs/GymProject/Database/Database.php';
+     $DatabaseObject = new Database('localhost', 'root', 'gym');
+     $result = $DatabaseObject -> delete('courseslot', 'id', $_COOKIE['id']);
+     echo '<h2 class="success-message">'.$result.'</h2>';
+  ?>
+  <footer class="site-footer section-footer footer">
     <div class="container container-footer">
       <nav id="footer-nav" class="navigation">
         <a href="#"></a>
