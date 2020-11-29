@@ -16,7 +16,7 @@
       <a href="#">
         <img style="height: 80px; width: 80px;" src="/GymProject/pictures/cedefiOf.png" alt="cedefiLogo" />
       </a>
-      <a href="/Admin-Slots/pages/mainSlots/mainSlots.html">Home</a>
+      <a href="/GymProject/Admin-Slots/pages/mainSlots/mainSlots.html">Home</a>
       <div class='dropdown'>
         <a class='dropbtn'>Courses</a>
         <div class='dropdown-content'>
@@ -25,8 +25,14 @@
           <a href='/GymProject/Admin-Slots/pages/Courses/viewCourses.php'>View Courses</a>
         </div>
       </div>
-      <a href="">Time Slots</a>
-      <a href="">Support</a></li>
+      <div class='dropdown'>
+        <a class='dropbtn'>Time Slots</a>
+        <div class='dropdown-content'>
+          <a href='/GymProject/Admin-Slots/pages/Slots/createTimeSlot.php'>Add Time Slot</a>
+          <a href='/GymProject/Admin-Slots/pages/Slots/removeTimeSlots.php'>Edit/Remove TimeSlot</a>
+          <a href='/GymProject/Admin-Slots/pages/Slots/viewTimeCourses.php'>View TimeSlots</a>
+        </div>
+      </div>
     </nav>
   </header>
 

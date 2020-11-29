@@ -7,7 +7,7 @@
   <title>Slots Template</title>
   <link rel="stylesheet" href="/GymProject/Admin-Slots/css/normalize.css">
   <link rel="stylesheet" href="/GymProject/Admin-Slots/css/mainTemplate.css" />
-  <link rel='stylesheet' href='/GymProject/Admin-Slots/css/courses/viewcourses.css'>
+  <link rel='stylesheet' href='/GymProject/Admin-Slots/css/slots/editremovetimeslots.css'>
 </head>
 
 <body>
@@ -40,47 +40,55 @@
   <h1 style='text-align:center'>Show Courses</h1>
 
   <!--Table class-->
-  <table>
-    <tr>
-      <th>Id</th>
-      <th>Course</th>
-      <th>Instructor</th>
-      <th>Description</th>
-    </tr>
-    <?php
-      include_once '/xampp/htdocs/GymProject/Database/Database.php';
+  <form>
+    <table id='timeSlotsTable'>
+      <tr>
+        <th>Id</th>
+        <th>Course</th>
+        <th>Time Schedule</th>
+        <th>Options</th>
+      </tr>
+      <?php
+        include_once '/xampp/htdocs/GymProject/Database/Database.php';
 
-      $objectReadTable = new Database('localhost', 'root', 'gym');
-      $instructorResults = $objectReadTable -> read('instructor');
-      $coursesResults = $objectReadTable -> read('courses');
+        $objectReadTable = new Database('localhost', 'root', 'gym');
+        $instructorResults = $objectReadTable -> read('instructor');
+        $coursesResults = $objectReadTable -> read('courses');
+        $courseTimeResults = $objectReadTable -> read('courseSlot');
+        $timeResults = $objectReadTable -> read('timeslots');
 
-      function findInstructorName ($instructorArray, $id) {
-        for ($index = 0; $index < count($instructorArray); $index++) {
-          if ($instructorArray[$index]['id'] === $id){
-            return $instructorArray[$index]['nombre'];
+        function findCourseName ($id, $array) {
+          for ($index = 0; $index < count($array); $index++) {
+            if ($id === $array[$index]['id']) {
+              return $array[$index]['name'];
+            }
           }
+          return 'No Course Assigned';
         }
-        return 'No Instructor Assigned';
-      }
 
-      function insertTableData ($array, $instructor) {
-        $instructorFlag = 0;
-        foreach ($array as $val) {
-          if($instructorFlag === 2){
-            echo '<td>'.findInstructorName($instructor, $val).'</td>';
-            $instructorFlag++;
-          } else {
-            echo '<td>'.$val.'</td>';
-            $instructorFlag++;
+        function findTimeFrame ($id, $array) {
+          for ($index = 0; $index < count($array); $index++) {
+            if ($id === $array[$index]['id']) {
+              return $array[$index]['timeFrame'];
+            }
           }
-         }
-       }
+          return 'No Course Assigned';
+        }
 
-       for ($indexRow = 0; $indexRow < count($coursesResults); $indexRow ++) {
-         echo '<tr>'.insertTableData($coursesResults[$indexRow], $instructorResults).'</tr>';
-       }
-    ?>
-  </table>
+        function insertTableData($mainArray, $courses, $time) {
+          echo '<td>'.$mainArray['id'].'</td>';
+          echo '<td>'.findCourseName($mainArray['idCourse'], $courses).'</td>';
+          echo '<td>'.findTimeFrame($mainArray['idTime'], $time).'</td>';
+          echo '<td><button id='.$mainArray['id'].' class="removeUpdateButton" type="submit" formaction="controllerDeleteTimeSlot.php">Remove</button></td></tr>';
+        }
+
+        for ($indexRow = 0; $indexRow < count($courseTimeResults); $indexRow ++) {
+          echo '<tr id='.$courseTimeResults[$indexRow]['id'].'>'.insertTableData($courseTimeResults[$indexRow], $coursesResults, $timeResults).'</tr>';
+        }
+
+      ?>
+    </table>
+  </form>
   
 
   <footer class="site-footer section-footer footer">
@@ -97,4 +105,5 @@
     </div>
   </footer>
 </body>
+<script src='editRemoveTimeScript.js'></script>
 </html>

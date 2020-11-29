@@ -28,12 +28,11 @@
       <div class='dropdown'>
         <a class='dropbtn'>Time Slots</a>
         <div class='dropdown-content'>
-          <a href='/GymProject/Admin-Slots/pages/Courses/addCourses.php'>Add Time Slot</a>
-          <a href='/GymProject/Admin-Slots/pages/Courses/editRemoveCourses.php'>Edit/Remove TimeSlot</a>
-          <a href='/GymProject/Admin-Slots/pages/Courses/viewCourses.php'>View TimeSlots</a>
+          <a href='/GymProject/Admin-Slots/pages/Slots/createTimeSlot.php'>Add Time Slot</a>
+          <a href='/GymProject/Admin-Slots/pages/Slots/removeTimeSlots.php'>Edit/Remove TimeSlot</a>
+          <a href='/GymProject/Admin-Slots/pages/Slots/viewTimeCourses.php'>View TimeSlots</a>
         </div>
       </div>
-      <a href="">Support</a></li>
     </nav>
   </header>
 
