@@ -48,8 +48,8 @@
     </tr>
 
     <?php
-     # include_once '/xampp/htdocs/GymProject/Database/Database.php';
-     # $objectReadTable = new Database('localhost', 'root', 'gym');
+     include_once '/xampp/htdocs/GymProject/Database/Database.php';
+     $objectReadTable = new Database('localhost', 'root', 'gym');
 
       $instructorResults = $objectReadTable -> read('instructors');
       $coursesResults = $objectReadTable -> read('courses');
