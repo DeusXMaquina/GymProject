@@ -52,6 +52,7 @@
         <div>
           <textarea id='description-input' class='input-slots' cols='40' rows='10' name='description'> </textarea><br><br>
         </div>
+        <p id='text-description'></p>
       </span>
         <!--Dropdown class-->
         <div class='instructor-dropdown'>
@@ -67,7 +68,7 @@
               (function($array){
                 for ($index = 0; $index < count($array); $index++){
                   $value = $index+1;
-                  echo '<option value="'.$array[$index]['id'].'">'.$array[$index]['nombre'].'</option>';
+                  echo '<option value="'.$array[$index]['id'].'">'.$array[$index]['name'].'</option>';
                 }
               })($result)
             ?>
