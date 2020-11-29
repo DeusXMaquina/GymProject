@@ -25,8 +25,14 @@
           <a href='/GymProject/Admin-Slots/pages/Courses/viewCourses.php'>View Courses</a>
         </div>
       </div>
-      <a href="">Time Slots</a>
-      <a href="">Support</a></li>
+      <div class='dropdown'>
+        <a class='dropbtn'>Time Slots</a>
+        <div class='dropdown-content'>
+          <a href='/GymProject/Admin-Slots/pages/Slots/createTimeSlot.php'>Add Time Slot</a>
+          <a href='/GymProject/Admin-Slots/pages/Slots/removeTimeSlots.php'>Edit/Remove TimeSlot</a>
+          <a href='/GymProject/Admin-Slots/pages/Slots/viewTimeCourses.php'>View TimeSlots</a>
+        </div>
+      </div>
     </nav>
   </header>
 
@@ -39,33 +45,39 @@
           <td>
               <button id='addCourses' class='card'>
                   <h1>Add Course</h1>
+                  <div id="popupAC" style="display: none">to add courses</div>
               </button>
           </td>
           <td>
               <button id='editRemoveCourses' class='card'>
                 <h1>Edit/Remove Course</h1>
+                <div id="popupEC" style="display: none">to edit or remove courses</div>
             </button>
           </td>
           <td>
               <button id='viewCourses' class='card'>
                 <h1>View Courses</h1>
+                <div id="popupVC" style="display: none">to view courses</div>
             </button> 
           </td>
         </tr>
         <tr>
             <td>
-                <button class='card'>
+                <button id='addSlots' class='card'>
                     <h1>Add Time Slot</h1>
+                    <div id="popupAS" style="display: none">to add courses time slots</div>
                 </button>
             </td>
             <td>
-                <button class='card'>
-                  <h1>Edit/Remove Time Slot</h1>
+                <button id='removeSlots'class='card'>
+                  <h1>Remove Time Slot</h1>
+                  <div id="popupRS" style="display: none">to remove courses time slots</div>
               </button>
             </td>
             <td>
-                <button class='card'>
+                <button id='viewSlots' class='card'>
                   <h1>View Time Slots</h1>
+                  <div id="popupVS" style="display: none">to view courses time slots</div>
               </button> 
             </td>
           </tr>
@@ -76,7 +88,7 @@
     <div class="container container-footer">
       <nav id="footer-nav" class="navigation">
         <a href="#"></a>
-        <a href="mainTemplate.html">Home</a>
+        <a href="/GymProject/Admin-Slots/pages/mainSlots/mainSlots.html">Home</a>
         <a href="">Courses</a>
         <a href="">Time Slots</a>
         <a href="">Support</a></li>

@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <header class="site-header">
+<header class="site-header">
     <nav class="navigation">
       <a href="#">
         <img style="height: 80px; width: 80px;" src="/GymProject/pictures/cedefiOf.png" alt="cedefiLogo" />
@@ -25,8 +25,14 @@
           <a href='/GymProject/Admin-Slots/pages/Courses/viewCourses.php'>View Courses</a>
         </div>
       </div>
-      <a href="">Time Slots</a>
-      <a href="">Support</a></li>
+      <div class='dropdown'>
+        <a class='dropbtn'>Time Slots</a>
+        <div class='dropdown-content'>
+          <a href='/GymProject/Admin-Slots/pages/Slots/createTimeSlot.php'>Add Time Slot</a>
+          <a href='/GymProject/Admin-Slots/pages/Slots/removeTimeSlots.php'>Edit/Remove TimeSlot</a>
+          <a href='/GymProject/Admin-Slots/pages/Slots/viewTimeCourses.php'>View TimeSlots</a>
+        </div>
+      </div>
     </nav>
   </header>
 
@@ -39,12 +45,12 @@
       <span>
         <br>
         <label class='label-slots'>Course Name</label> <br>
-        <input class='input-slots' name='course'> <br><br>
+        <input id='course-input' class='input-slots' name='course'> <br><br>
       </span>
       <span>
         <label class='label-slots'>Brief Description and routine</label>
         <div>
-          <textarea class='input-slots' cols='40' rows='10' name='description'> </textarea><br><br>
+          <textarea id='description-input' class='input-slots' cols='40' rows='10' name='description'> </textarea><br><br>
         </div>
       </span>
         <!--Dropdown class-->
@@ -87,4 +93,5 @@
     </div>
   </footer>
 </body>
+<script src='addCourses.js'> </script>
 </html> 
