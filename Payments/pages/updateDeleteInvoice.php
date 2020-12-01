@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Slots Template</title>
+  <title>Invoice</title>
   <link rel="stylesheet" href="/GymProject/Admin-Slots/css/normalize.css">
   <link rel="stylesheet" href="/GymProject/Admin-Slots/css/mainTemplate.css" />
   <link rel='stylesheet' href='/GymProject/Admin-Slots/css/courses/editremovecourses.css'>
@@ -20,9 +20,9 @@
       <div class='dropdown'>
         <a class='dropbtn'>Courses</a>
         <div class='dropdown-content'>
-            <a href='/GymProject/Admin-Slots/pages/Courses/addCourses.php'>Add Course</a>
-            <a href='/GymProject/Admin-Slots/pages/Courses/editRemoveCourses.php'>Edit/Remove Course</a>
-            <a href='/GymProject/Admin-Slots/pages/Courses/viewCourses.php'>View Courses</a>
+          <a href='/GymProject/Admin-Slots/pages/Courses/addCourses.php'>Add Course</a>
+          <a href='/GymProject/Admin-Slots/pages/Courses/editRemoveCourses.php'>Edit/Remove Course</a>
+          <a href='/GymProject/Admin-Slots/pages/Courses/viewCourses.php'>View Courses</a>
         </div>
       </div>
       <a href="">Time Slots</a>
@@ -31,62 +31,64 @@
   </header>
 
   <!--Title-->
-  <h1 style='text-align:center'>Edit or Remove Courses</h1>
+  <h1 style='text-align:center'>Edit or Remove Invoice</h1>
 
   <!--Table class-->
   <form method='post'>
-  <table id='invoiceTable'>
-    <tr>
-      <th>InvoiceNumber</th>
-      <th>User</th>
-      <th>Total Payed</th>
-      <th>Date Issued</th>
-    </tr>
-    <?php
-      include_once '/xampp/htdocs/GymProject/Database/Database.php';
+    <table id='invoiceTable'>
+      <tr>
+        <th>Invoice Number</th>
+        <th>Name</th>
+        <th>Date Issued</th>
+        <th>Total Payed</th>
+      </tr>
+      <?php
+      include_once 'C:/LibraryApps/XAMPP/htdocs/GymProject/Database/Database.php';
 
       $objectReadTable = new Database('localhost', 'root', 'gym');
-      $userPaymentsResults = $objectReadTable -> read('userpaymentdata');
-      $paymentsResults = $objectReadTable -> read('payments');
-      $userResults = $objectReadTable -> read('users');
+      $userPaymentsResults = $objectReadTable->read('userpaymentdata');
+      $paymentsResults = $objectReadTable->read('payments');
 
-      function findUserName ($userArray, $userPaymentsArray,$id) {
+      function findUserName($userPaymentsArray, $id)
+      {
         for ($index = 0; $index < count($userPaymentsArray); $index++) {
-          if ($userPaymentsArray[$index]['id'] === $id){
-            return $userArray[$index]['nombre'];
+          if ($userPaymentsArray[$index]['id'] === $id) {
+            return $userPaymentsArray[$index]['fullName'];
           }
         }
-        return 'No Instructor Assigned';
+        return 'No user ';
       }
 
-      function insertTableData ($array, $user, $paymentsUser, $id) {
+      function insertTableData($array, $paymentsUser, $id)
+      {
         $userFlag = 0;
         echo '<tr>';
         foreach ($array as $val) {
-          if($userFlag === 1){
-            echo '<td id="user">'.findUserName($user,$paymentsUser,$val).'</td>';
+          if ($userFlag === 1) {
+            echo '<td id="user">' . findUserName($paymentsUser, $val) . '</td>';
             $userFlag++;
           } else {
-            echo '<td>'.$val.'</td>';
+            echo '<td>' . $val . '</td>';
             $userFlag++;
           }
-         }
-         echo '<td><button id='.$id.' class="removeUpdateButton" type="submit" formaction="controllerUpdateCourse.php">Update</button><button id='.$id.' class="removeUpdateButton" type="submit" formaction="controllerDeleteCourse.php">Remove</button></td></tr>';
-       }
-       for ($indexRow = 0; $indexRow < count($paymentsResults); $indexRow ++) {
-         insertTableData($paymentsResults[$indexRow], $userResults, $userPaymentsResults,$paymentsResults[$indexRow]['idUserPaymentData']);
-       }
-    ?>
-  </table>
-</form>
+        }
+        echo '<td><button id=' . $id . ' class="removeUpdateButton" type="submit" formaction="controllerUpdateCourse.php">Update</button><button id=' . $id . ' class="removeUpdateButton" type="submit" formaction="controllerDeleteCourse.php">Remove</button></td></tr>';
+      }
+      for ($indexRow = 0; $indexRow < count($paymentsResults); $indexRow++) {
+        insertTableData($paymentsResults[$indexRow], $userPaymentsResults, $paymentsResults[$indexRow]['idUserPaymentData']);
+      }
+      ?>
+    </table>
+  </form>
   {+}
-        <a href="">Time Slots</a>
-        <a href="">Support</a></li>
-      </nav>
-      <img style="height: 50px; width: 50px;" src="/GymProject/pictures/cedefiOf.png" alt="cedefiLogo" />
-      <p class="copyright">Copyright &copy; Universidad del Valle de Atemajac </p>
-    </div>
+  <a href="">Time Slots</a>
+  <a href="">Support</a></li>
+  </nav>
+  <img style="height: 50px; width: 50px;" src="/GymProject/pictures/cedefiOf.png" alt="cedefiLogo" />
+  <p class="copyright">Copyright &copy; Universidad del Valle de Atemajac </p>
+  </div>
   </footer>
 </body>
 <script src='editRemoveScript.js'></script>
+
 </html>
