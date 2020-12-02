@@ -57,7 +57,7 @@
       function findInstructorName ($instructorArray, $id) {
         for ($index = 0; $index < count($instructorArray); $index++) {
           if ($instructorArray[$index]['id'] === $id){
-            return $instructorArray[$index]['nombre'];
+            return $instructorArray[$index]['name'];
           }
         }
         return 'No Instructor Assigned';
