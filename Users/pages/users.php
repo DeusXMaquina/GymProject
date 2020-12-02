@@ -7,7 +7,7 @@
     <title>template</title>
     <link rel="stylesheet" href="/GymProject/css/normalize.css">
     <link rel="stylesheet" href="/GymProject/Users/css/users.css"/>
-
+    <script LANGUAGE="JavaScript" src="../js/jsActions.js"></script>
 </head>
 
 <body>
@@ -16,8 +16,8 @@
             <a href="#">
                 <img style="height: 80px; width: 80px;" src="/GymProject/pictures/cedefiOf.png" alt="cedefiLogo" />
             </a>
-            <a href="GymProject/index.html">Home</a>
-            <a href="">Users</a>
+            <a href="/GymProject/index.html">Home</a>
+            <a href="/GymProject/Users/pages/users.php">Users</a>
             <a href="">Slots</a>
             <a href="">Instructors</a>
             <a href="#">Payments</a></li>
