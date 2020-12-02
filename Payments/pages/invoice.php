@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="/GymProject/css/normalize.css">
     <link rel="stylesheet" href="/GymProject/css/basicTemplate.css" />
     <link rel="stylesheet" href="/GymProject/Payments/css/invoice.css">
+    <script src="/GymProject/Payments/JS/script.js"></script>
 </head>
 
-<body>
+<body onbeforeprint='print()'>
     <header class="site-header">
         <nav class="navigation">
             <a href="#">
@@ -37,7 +38,7 @@
                 $date = $objectReadInvoice->getDateIssued();
                 echo "<label for='date'>Date Issued: " . $date . "</label> <br>";
                 $invoiceNumber = $objectReadInvoice->getInvoiceNumber();
-                echo "<label for='invoice'>Invoice Number: 00" . $invoiceNumber . "</label>";
+                echo "<label id= 'invoice'  oncopy='copy()' for='invoice'>Invoice Number: 00" . $invoiceNumber . "</label>";
                 ?>
             </div>
             <div style="text-align: right;">
