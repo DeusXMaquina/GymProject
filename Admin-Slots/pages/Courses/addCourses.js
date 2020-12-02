@@ -1,14 +1,12 @@
-console.log('contiene js')
-
 var courseInput = document.getElementById('course-input')
-courseInput.addEventListener('focus', function(event) {event.target.style.background = 'yellow'})
-courseInput.addEventListener('blur', function(event) {event.target.style.background = 'white'})
+courseInput.addEventListener('mouseenter', function(event) {event.target.style.background = '#FEFFBD'})
+courseInput.addEventListener('mouseleave', function(event) {event.target.style.background = 'white'})
+courseInput.addEventListener('focusin', function(event) {event.target.style.borderWidth = 'medium'})
+courseInput.addEventListener('focusout', function(event) {event.target.style.borderWidth = '1px'})
 
 var descriptionInput = document.getElementById('description-input')
-descriptionInput.addEventListener('focus', function(event) {event.target.style.background = 'yellow'})
-descriptionInput.addEventListener('blur', function(event) {event.target.style.background = 'white'})
-
-
-// eventos actuales - blur, focus, dbclick, click, onmouseover, onmouseout, hover
-//eventlistener de input, focusin, focusout, mouseenter.
-
+descriptionInput.addEventListener('mouseenter', function(event) {event.target.style.background = '#FEFFBD'})
+descriptionInput.addEventListener('mouseleave', function(event) {event.target.style.background = 'white'})
+descriptionInput.addEventListener('focus', function(event) {event.target.style.borderWidth = 'medium'})
+descriptionInput.addEventListener('blur', function(event) {event.target.style.borderWidth = '1px'})
+descriptionInput.addEventListener('input', function() {document.getElementById('text-description').innerHTML = 'Write a brief description about the course'})

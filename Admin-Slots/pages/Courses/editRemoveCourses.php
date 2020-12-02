@@ -45,7 +45,8 @@
     <tr>
       <th>Id</th>
       <th>Course</th>
-      <th>Instructor</th>
+      <th name='regularInstructor'>Instructor</th>
+      <th name='dropdown' style='display:none'>Instructor</th>
       <th>Description</th>
       <th>Options</th>
     </tr>
@@ -59,7 +60,7 @@
       function findInstructorName ($instructorArray, $id) {
         for ($index = 0; $index < count($instructorArray); $index++) {
           if ($instructorArray[$index]['id'] === $id){
-            return $instructorArray[$index]['nombre'];
+            return $instructorArray[$index]['name'];
           }
         }
         return 'No Instructor Assigned';
@@ -70,7 +71,14 @@
         echo '<tr>';
         foreach ($array as $val) {
           if($instructorFlag === 2){
-            echo '<td id="instructor">'.findInstructorName($instructor, $val).'</td>';
+            echo '<td name="regularInstructor" id="instructor">'.findInstructorName($instructor, $val).'</td>';
+            (function($array){
+              echo '<td name="dropdown" style="display:none"><span id=dropdown class="instructor-dropdown"><select name="idInstructor">';
+              for ($index = 0; $index < count($array); $index++){
+                echo '<option value="'.$array[$index]['id'].'">'.$array[$index]['name'].'</option>';
+              }
+              echo '</select></span></td>';
+            })($instructor);
             $instructorFlag++;
           } else {
             echo '<td>'.$val.'</td>';
