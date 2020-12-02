@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Slots Template</title>
+  <title>Invoice</title>
   <link rel="stylesheet" href="/GymProject/Admin-Slots/css/normalize.css">
   <link rel="stylesheet" href="/GymProject/Admin-Slots/css/mainTemplate.css" />
   <link rel='stylesheet' href='/GymProject/Admin-Slots/css/courses/editremovecourses.css'>
@@ -37,55 +37,67 @@
   </header>
 
   <!--Title-->
-  <h1 style='text-align:center'>Edit or Remove Courses</h1>
+  <h1 style='text-align:center'>Edit or Remove Invoice</h1>
 
 
-<?php
+
+  <?php
 
   error_reporting(E_ALL & ~E_NOTICE);
 
-  include_once '/xampp/htdocs/GymProject/Database/Database.php';
+  include_once '/LibraryApps/XAMPP/htdocs/GymProject/Database/Database.php';
 
   $DatabaseObject = new Database('localhost', 'root', 'gym');
 
-  $instructorResults = $DatabaseObject -> read('instructor');
+  $userPaymentsResults = $DatabaseObject->read('userpaymentdata');
+  $paymentsResutls = $DatabaseObject->read('payments');
+  $id = $_COOKIE['id'];
 
-  function findInstructorId ($instructorArray, $nombre, $database) {
-    for ($index = 0; $index < count($instructorArray); $index++) {
-      if ($instructorArray[$index]['nombre'] === $nombre){
-        return $instructorArray[$index]['id'];
+  function findUserPaymentId($paymentsArray, $paymentsId, $fullName, $database)
+  {
+    for ($index = 0; $index < count($paymentsArray); $index++) {
+      if ($index = $paymentsId) {
+        return $paymentsArray[$index]['idUserPaymentData'];
       }
     }
-    $database -> create('instructor', array('nombre'), array($nombre));
-    findInstructorId($instructorArray, $nombre, $database);
+
+    $database->create('userpaymentdata', array('fullName'), array($fullName));
+    findUserPaymentId($paymentsArray, $paymentsId, $fullName, $database);
   }
-  
+
   $updateColumns = array();
   $updateValues = array();
 
-  if ($_COOKIE['course']) {
-    array_push($updateColumns, 'name');
-    array_push($updateValues, $_COOKIE['course']);
+
+
+
+  if ($_COOKIE['name']) {
+    $userNameId = findUserPaymentId($paymentsArray, $id, $_COOKIE['name'], $DatabaseObject);
+
+    array_push($updateColumns, 'fullName');
+    array_push($updateValues, $_COOKIE('name'));
+
+    $nameresult = $DatabaseObject->update('userpaymentdata', $updateColumns, $updateValues, 'id', $userNameId);
   }
 
-  if ($_COOKIE['instructor']) {
-    $instructorId = findInstructorId($instructorResults, $_COOKIE['instructor'], $DatabaseObject);
-    array_push($updateColumns, 'idInstructor');
-    array_push($updateValues, $instructorId);
+  if ($_COOKIE['date']) {
+    array_push($updatePaymentColumns, 'dateIssued');
+    array_push($updatePaymentValues, $_COOKIE['date']);
   }
 
-  if ($_COOKIE['description']) {
-    array_push($updateColumns, 'description');
-    array_push($updateValues, $_COOKIE['description']);
+  if ($_COOKIE['total']) {
+    array_push($updateColumns, 'total');
+    array_push($updateValues, $_COOKIE['total']);
   }
 
-  $result = $DatabaseObject -> update('courses',$updateColumns,$updateValues,'id', $_COOKIE['id']);
+  $result = $DatabaseObject->update('payments', $updatePaymentColumns, $updatePaymentValues, 'id', (string)$id);
 
 
-  echo '<h2 class="success-message">'.$result.'</h2>';
-?>
 
-<footer class="site-footer section-footer footer">
+  echo '<h2 class="success-message">' . $nameresult . 'and ' . $result . '</h2>';
+  ?>
+
+  <footer class="site-footer section-footer footer">
     <div class="container container-footer">
       <nav id="footer-nav" class="navigation">
         <a href="#"></a>
@@ -99,4 +111,5 @@
     </div>
   </footer>
 </body>
+
 </html>

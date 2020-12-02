@@ -43,7 +43,7 @@
         <th>Total Payed</th>
       </tr>
       <?php
-      include_once 'C:/LibraryApps/XAMPP/htdocs/GymProject/Database/Database.php';
+      include_once '/LibraryApps/XAMPP/htdocs/GymProject/Database/Database.php';
 
       $objectReadTable = new Database('localhost', 'root', 'gym');
       $userPaymentsResults = $objectReadTable->read('userpaymentdata');
@@ -56,7 +56,7 @@
             return $userPaymentsArray[$index]['fullName'];
           }
         }
-        return 'No user ';
+        return 'No Name found ';
       }
 
       function insertTableData($array, $paymentsUser, $id)
@@ -65,22 +65,22 @@
         echo '<tr>';
         foreach ($array as $val) {
           if ($userFlag === 1) {
-            echo '<td id="user">' . findUserName($paymentsUser, $val) . '</td>';
+            echo '<td id="name">' . findUserName($paymentsUser, $val) . '</td>';
             $userFlag++;
           } else {
             echo '<td>' . $val . '</td>';
             $userFlag++;
           }
         }
-        echo '<td><button id=' . $id . ' class="removeUpdateButton" type="submit" formaction="controllerUpdateCourse.php">Update</button><button id=' . $id . ' class="removeUpdateButton" type="submit" formaction="controllerDeleteCourse.php">Remove</button></td></tr>';
+        echo '<td><button id=' . $id . ' class="removeUpdateButton" type="submit" formaction="/GymProject/Payments/Controllers/controllerUpdateInvoice.php">Update</button><button id=' . $id . ' class="removeUpdateButton" type="submit" formaction="/GymProject/Payments/Controllers/controllerDeleteInvoice.php">Remove</button></td></tr>';
       }
       for ($indexRow = 0; $indexRow < count($paymentsResults); $indexRow++) {
-        insertTableData($paymentsResults[$indexRow], $userPaymentsResults, $paymentsResults[$indexRow]['idUserPaymentData']);
+        insertTableData($paymentsResults[$indexRow], $userPaymentsResults, $paymentsResults[$indexRow]['id']);
       }
       ?>
     </table>
   </form>
-  {+}
+
   <a href="">Time Slots</a>
   <a href="">Support</a></li>
   </nav>
@@ -89,6 +89,6 @@
   </div>
   </footer>
 </body>
-<script src='editRemoveScript.js'></script>
+<script src='/GymProject/Payments/Controllers/editRemoveScript.js'></script>
 
 </html>

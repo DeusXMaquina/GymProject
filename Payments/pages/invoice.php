@@ -33,7 +33,7 @@
             <div>
                 <h2>CEDEFI</h2>
                 <?php
-                include_once 'C:\LibraryApps\XAMPP\htdocs\GymProject\Payments\Controllers\controllerReadInvoice.php';
+                include_once '../Controllers/controllerReadInvoice.php';
                 $objectReadInvoice = new ReadInvoice();
                 $date = $objectReadInvoice->getDateIssued();
                 echo "<label for='date'>Date Issued: " . $date . "</label> <br>";

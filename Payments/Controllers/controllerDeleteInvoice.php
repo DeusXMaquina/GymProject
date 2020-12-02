@@ -42,11 +42,13 @@
 
   <?php
 
-  include_once '/xampp/htdocs/GymProject/Database/Database.php';
+  include_once '/LibraryApps/XAMPP/htdocs/GymProject/Database/Database.php';
 
   $DatabaseObject = new Database('localhost', 'root', 'gym');
+  $id = $_COOKIE['id'];
 
-  $result = $DatabaseObject->delete('payments', 'id', $_COOKIE['id']);
+  $Firstresult = $DatabaseObject->delete('paymentsdetail', 'idPayments', $id);
+  $result = $DatabaseObject->delete('payments', 'id', $id);
 
   echo '<h2 class="success-message">' . $result . '</h2>';
   ?>
