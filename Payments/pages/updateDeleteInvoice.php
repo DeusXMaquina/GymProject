@@ -72,7 +72,7 @@
             $userFlag++;
           }
         }
-        echo '<td><button id=' . $id . ' class="removeUpdateButton" type="submit" formaction="/GymProject/Payments/Controllers/controllerUpdateInvoice.php">Update</button><button id=' . $id . ' class="removeUpdateButton" type="submit" formaction="/GymProject/Payments/Controllers/controllerDeleteInvoice.php">Remove</button></td></tr>';
+        echo '<td><button id=' . $id . ' class="removeUpdateButton" type="submit" formaction= "controllerUpdateInvoice.php">Update</button><button id=' . $id . ' class="removeUpdateButton" type="submit" formaction="controllerDeleteInvoice.php">Remove</button></td></tr>';
       }
       for ($indexRow = 0; $indexRow < count($paymentsResults); $indexRow++) {
         insertTableData($paymentsResults[$indexRow], $userPaymentsResults, $paymentsResults[$indexRow]['id']);

@@ -50,7 +50,7 @@
   $DatabaseObject = new Database('localhost', 'root', 'gym');
 
   $userPaymentsResults = $DatabaseObject->read('userpaymentdata');
-  $paymentsResutls = $DatabaseObject->read('payments');
+  $paymentsResults = $DatabaseObject->read('payments');
   $id = $_COOKIE['id'];
 
   function findUserPaymentId($paymentsArray, $paymentsId, $fullName, $database)
@@ -67,15 +67,17 @@
 
   $updateColumns = array();
   $updateValues = array();
+  $updatePaymentValues = array();
+  $updatePaymentColumns = array();
 
-
+  $nameresult = "";
 
 
   if ($_COOKIE['name']) {
-    $userNameId = findUserPaymentId($paymentsArray, $id, $_COOKIE['name'], $DatabaseObject);
+    $userNameId = findUserPaymentId($paymentsResults, $id, $_COOKIE['name'], $DatabaseObject);
 
     array_push($updateColumns, 'fullName');
-    array_push($updateValues, $_COOKIE('name'));
+    array_push($updateValues, $_COOKIE['name']);
 
     $nameresult = $DatabaseObject->update('userpaymentdata', $updateColumns, $updateValues, 'id', $userNameId);
   }
@@ -86,15 +88,14 @@
   }
 
   if ($_COOKIE['total']) {
-    array_push($updateColumns, 'total');
-    array_push($updateValues, $_COOKIE['total']);
+    array_push($updatePaymentColumns, 'total');
+    array_push($updatePaymentValues, $_COOKIE['total']);
   }
 
-  $result = $DatabaseObject->update('payments', $updatePaymentColumns, $updatePaymentValues, 'id', (string)$id);
+  $result = $DatabaseObject->update('payments', $updatePaymentColumns, $updatePaymentValues, 'id', $id);
 
 
-
-  echo '<h2 class="success-message">' . $nameresult . 'and ' . $result . '</h2>';
+  echo '<h2 class="success-message">' . $nameresult . ' and ' . $result . '</h2>';
   ?>
 
   <footer class="site-footer section-footer footer">
