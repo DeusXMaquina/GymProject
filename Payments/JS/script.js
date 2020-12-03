@@ -30,6 +30,10 @@ function cardLength() {
   alert("Card number must have 16 numbers");
 }
 
+function submit() {
+  alert("You made your payment");
+}
+
 //INVOICE
 /*Oncopy()*/
 function copy() {
