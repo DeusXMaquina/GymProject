@@ -28,7 +28,7 @@
     <div class="container-hero">
       <!--Title-->
       <h1 style='text-align:center'>Payments</h1>
-      <form action="/GymProject/Payments/Controllers/controllerCreatePayments.php" method="POST" class="payment">
+      <form  onsubmit="submit()"  action="/GymProject/Payments/Controllers/controllerCreatePayments.php" method="POST" class="payment">
         <!-- Membership-->
         <h3>Select your membership:</h3>
         <p>Gold Membership: all clases + Snack Bar & Shower access ONLY $99 USD</p>
