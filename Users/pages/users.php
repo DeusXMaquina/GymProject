@@ -7,7 +7,7 @@
     <title>template</title>
     <link rel="stylesheet" href="/GymProject/css/normalize.css">
     <link rel="stylesheet" href="/GymProject/Users/css/users.css"/>
-
+    <script LANGUAGE="JavaScript" src="../js/jsActions.js"></script>
 </head>
 
 <body>
@@ -16,8 +16,8 @@
             <a href="#">
                 <img style="height: 80px; width: 80px;" src="/GymProject/pictures/cedefiOf.png" alt="cedefiLogo" />
             </a>
-            <a href="GymProject/index.html">Home</a>
-            <a href="">Users</a>
+            <a href="/GymProject/index.html">Home</a>
+            <a href="/GymProject/Users/pages/users.php">Users</a>
             <a href="">Slots</a>
             <a href="">Instructors</a>
             <a href="#">Payments</a></li>
@@ -40,16 +40,18 @@
 
   <!--Table class-->
   <table style="width: 100%; padding-bottom: 20px; padding-top: 20px;  border: 1px solid black; margin-bottom: 20px;">
+  <?php echo '<script>alert(Welcome '.$_SERVER['user'].');<script>'?>
     <tr>
       <th>Id</th>
       <th>Course</th>
       <th>Description</th>
       <th>Instructor</th>
     </tr>
-
+    
     <?php
-     # include_once '/xampp/htdocs/GymProject/Database/Database.php';
-     # $objectReadTable = new Database('localhost', 'root', 'gym');
+
+     include_once '/xampp/htdocs/GymProject/Database/Database.php';
+     $objectReadTable = new Database('localhost', 'root', 'gym');
 
       $instructorResults = $objectReadTable -> read('instructors');
       $coursesResults = $objectReadTable -> read('courses');
