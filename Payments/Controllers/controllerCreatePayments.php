@@ -19,7 +19,5 @@ $createPaymentsGeneral = $objectCreateGeneral->createPaymentsGeneral();
 $objectCreateDetail = new paymentsDetail($membership);
 $createPaymentDetails = $objectCreateDetail->createPaymentsDetail();
 
-#echo  location.replace('')
-var_dump($createUserPayment);
-var_dump($createPaymentsGeneral);
-var_dump($createPaymentDetails);
+$newURL = "../pages/invoice.php?membership=".$membership."fullName=";
+header('Location: ' . $newURL);

@@ -8,19 +8,17 @@
     <link rel="stylesheet" href="/GymProject/css/normalize.css">
     <link rel="stylesheet" href="/GymProject/css/basicTemplate.css" />
     <link rel="stylesheet" href="/GymProject/Payments/css/invoice.css">
+    <script src="/GymProject/Payments/JS/script.js"></script>
 </head>
 
-<body>
+<body onbeforeprint='print()'>
     <header class="site-header">
         <nav class="navigation">
             <a href="#">
                 <img style="height: 80px; width: 80px;" src="/GymProject/pictures/cedefiOf.png" alt="cedefiLogo" />
             </a>
-            <a href="/GymProject/index.html">Home</a>
-            <a href="">Users</a>
-            <a href="">Slots</a>
-            <a href="">Instructors</a>
-            <a href="">Support</a></li>
+            <a href="/index.html">Home</a>
+            <a href="payments.php">Payments</a>
         </nav>
     </header>
 
@@ -32,12 +30,12 @@
             <div>
                 <h2>CEDEFI</h2>
                 <?php
-                include_once 'C:\LibraryApps\XAMPP\htdocs\GymProject\Payments\Controllers\controllerReadInvoice.php';
+                include_once '../Controllers/controllerReadInvoice.php';
                 $objectReadInvoice = new ReadInvoice();
                 $date = $objectReadInvoice->getDateIssued();
                 echo "<label for='date'>Date Issued: " . $date . "</label> <br>";
                 $invoiceNumber = $objectReadInvoice->getInvoiceNumber();
-                echo "<label for='invoice'>Invoice Number: 00" . $invoiceNumber . "</label>";
+                echo "<label id= 'invoice'  oncopy='copy()' for='invoice'>Invoice Number: 00" . $invoiceNumber . "</label>";
                 ?>
             </div>
             <div style="text-align: right;">
