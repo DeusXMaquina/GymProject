@@ -19,10 +19,8 @@
         <img style="height: 80px; width: 80px;" src="/GymProject/pictures/cedefiOf.png" alt="cedefiLogo" />
       </a>
       <a href="/index.html">Home</a>
-      <a href="">Users</a>
-      <a href="">Slots</a>
-      <a href="">Instructors</a>
-      <a href="">Support</a></li>
+      <a href="payments.php">Payments</a>
+
     </nav>
   </header>
 
