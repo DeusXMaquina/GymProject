@@ -1,7 +1,9 @@
 <?php
+
     include_once '/xampp/htdocs/GymProject/Database/Database.php';
     $objectReadTable = new Database('localhost', 'root', 'gym');
     $userResults = $objectReadTable -> read('users');
+
     function findUser($userResults){
         
         $user = $_POST['user'];
@@ -17,5 +19,6 @@
         echo '<script>alert("Welcome back!");</script>';        
     }
         
+    
 
 ?>

@@ -92,18 +92,21 @@
     public function update($table, $updateFields, $updateValues, $columnName, $findValue) {
 
       # function to build the SET sentence for MySQL
-      function buildUpdateString($fieldsArray, $valuesArray) {
-        $finalString = '';
-        $length = count($fieldsArray);
-          for ($index = 0; $index < $length; $index++) {
-            if ($index == $length -1) {
-              $finalString .= $fieldsArray[$index]."='".$valuesArray[$index]."' ";
-            } else {
-              $finalString .= $fieldsArray[$index]."='".$valuesArray[$index]."', ";
+      if(!function_exists('buildUpdateString')) {
+        function buildUpdateString($fieldsArray, $valuesArray) {
+          $finalString = '';
+          $length = count($fieldsArray);
+            for ($index = 0; $index < $length; $index++) {
+              if ($index == $length -1) {
+                $finalString .= $fieldsArray[$index]."='".$valuesArray[$index]."' ";
+              } else {
+                $finalString .= $fieldsArray[$index]."='".$valuesArray[$index]."', ";
+              }
             }
-          }
-        return $finalString;
+          return $finalString;
+        }
       }
+      
       
       $connection = new mysqli($this -> hostname, $this -> username, $this -> password, $this -> database);
       if ($connection -> connect_error) {
