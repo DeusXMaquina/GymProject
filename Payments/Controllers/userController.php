@@ -11,14 +11,18 @@
         for($index=0; $index<count($userResults); $index++){
             if($userResults[$index]['user'] === $user && $userResults[$index]['pass'] === $password){
                 // 301 Moved Permanently
-                header("Location: http://localhost/GymProject/Users/pages/users.php", true, 301);
-                echo '<script>alert("Welcome back $user! ");</script>';
+                header("Location: http://localhost/GymProject/Users/pages/users.php?user=$user", true, 301);
+                echo '<script>alert("Welcome back $user!");</script>';
             } 
         }
         header("Location: http://localhost/GymProject/Users/pages/users.php", false, 301);
         echo '<script>alert("Welcome back!");</script>';        
+<<<<<<< HEAD:Users/Controllers/userController.php
     }
         
     
 
+=======
+    }    
+>>>>>>> a44a1ca670d638dd7d5ed3ea2d40b057a9773232:Payments/Controllers/userController.php
 ?>

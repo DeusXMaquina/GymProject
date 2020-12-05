@@ -41,14 +41,16 @@
 
   <!--Table class-->
   <table style="width: 100%; padding-bottom: 20px; padding-top: 20px;  border: 1px solid black; margin-bottom: 20px;">
+  <?php echo '<script>alert(Welcome '.$_SERVER['user'].');<script>'?>
     <tr>
       <th>Id</th>
       <th>Course</th>
       <th>Description</th>
       <th>Instructor</th>
     </tr>
-
+    
     <?php
+
      include_once '/xampp/htdocs/GymProject/Database/Database.php';
      $objectReadTable = new Database('localhost', 'root', 'gym');
 

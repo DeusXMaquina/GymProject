@@ -1,6 +1,7 @@
 function setCookieValue(event, value) {
   var cookieNames = {
        1: 'course',
+       2: 'instructor',
        3: 'description'
   }
     document.cookie = cookieNames[event.cellIndex] + '=' + value
