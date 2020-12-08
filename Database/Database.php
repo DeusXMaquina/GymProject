@@ -108,7 +108,7 @@
       }
       
       
-      $connection = new mysqli($this -> hostname, $this -> username, $this -> password, $this -> database);
+     $connection = new mysqli($this -> hostname, $this -> username, $this -> password, $this -> database);
       if ($connection -> connect_error) {
         die("Connection failed: ".$connection -> connect_errno);
       }
